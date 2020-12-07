@@ -105,5 +105,15 @@ namespace AppThueDia
             f.Dock = DockStyle.Fill;
             f.Show();
         }
+
+        private void baoCaoTieuDe_Click(object sender, EventArgs e)
+        {
+            pnMain.Controls.Clear();
+            frmBaoCaoTieuDe f = new frmBaoCaoTieuDe();
+            f.TopLevel = false;
+            pnMain.Controls.Add(f);
+            f.Dock = DockStyle.Fill;
+            f.Show();
+        }
     }
 }

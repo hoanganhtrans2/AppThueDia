@@ -41,6 +41,8 @@
             this.menuDangNhap = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnMain = new System.Windows.Forms.Panel();
+            this.báoCáoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.baoCaoTieuDe = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,7 +67,8 @@
             this.menuTieuDe,
             this.menuQLDia,
             this.menuDatTieuDe,
-            this.huyPhiTraTre});
+            this.huyPhiTraTre,
+            this.báoCáoToolStripMenuItem});
             this.menuChucNang.Name = "menuChucNang";
             this.menuChucNang.Size = new System.Drawing.Size(77, 20);
             this.menuChucNang.Text = "Chức năng";
@@ -150,6 +153,21 @@
             this.pnMain.Size = new System.Drawing.Size(1275, 689);
             this.pnMain.TabIndex = 1;
             // 
+            // báoCáoToolStripMenuItem
+            // 
+            this.báoCáoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.baoCaoTieuDe});
+            this.báoCáoToolStripMenuItem.Name = "báoCáoToolStripMenuItem";
+            this.báoCáoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.báoCáoToolStripMenuItem.Text = "Báo Cáo";
+            // 
+            // baoCaoTieuDe
+            // 
+            this.baoCaoTieuDe.Name = "baoCaoTieuDe";
+            this.baoCaoTieuDe.Size = new System.Drawing.Size(180, 22);
+            this.baoCaoTieuDe.Text = "Báo cáo tiêu đề";
+            this.baoCaoTieuDe.Click += new System.EventHandler(this.baoCaoTieuDe_Click);
+            // 
             // frmChucNang
             // 
             this.Appearance.Options.UseFont = true;
@@ -186,5 +204,7 @@
         private System.Windows.Forms.ToolStripMenuItem menuQLDia;
         private System.Windows.Forms.ToolStripMenuItem menuDatTieuDe;
         private System.Windows.Forms.ToolStripMenuItem huyPhiTraTre;
+        private System.Windows.Forms.ToolStripMenuItem báoCáoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem baoCaoTieuDe;
     }
 }

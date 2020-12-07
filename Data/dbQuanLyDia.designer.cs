@@ -143,6 +143,16 @@ namespace Data
 		
 		private string _MaDia;
 		
+		private System.Nullable<bool> _ThanhToanPhiNo;
+		
+		private System.Nullable<double> _PhiTraTre;
+		
+		private System.Nullable<System.DateTime> _NgayTraDia;
+		
+		private System.Nullable<System.DateTime> _HanTraDia;
+		
+		private System.Nullable<System.DateTime> _NgayThue;
+		
 		private EntityRef<Disk_Game> _Disk_Game;
 		
 		private EntityRef<DonHang> _DonHang;
@@ -159,6 +169,16 @@ namespace Data
     partial void OnMaDonHangChanged();
     partial void OnMaDiaChanging(string value);
     partial void OnMaDiaChanged();
+    partial void OnThanhToanPhiNoChanging(System.Nullable<bool> value);
+    partial void OnThanhToanPhiNoChanged();
+    partial void OnPhiTraTreChanging(System.Nullable<double> value);
+    partial void OnPhiTraTreChanged();
+    partial void OnNgayTraDiaChanging(System.Nullable<System.DateTime> value);
+    partial void OnNgayTraDiaChanged();
+    partial void OnHanTraDiaChanging(System.Nullable<System.DateTime> value);
+    partial void OnHanTraDiaChanged();
+    partial void OnNgayThueChanging(System.Nullable<System.DateTime> value);
+    partial void OnNgayThueChanged();
     #endregion
 		
 		public ChiTietDonHang()
@@ -252,6 +272,106 @@ namespace Data
 					this._MaDia = value;
 					this.SendPropertyChanged("MaDia");
 					this.OnMaDiaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ThanhToanPhiNo", DbType="Bit")]
+		public System.Nullable<bool> ThanhToanPhiNo
+		{
+			get
+			{
+				return this._ThanhToanPhiNo;
+			}
+			set
+			{
+				if ((this._ThanhToanPhiNo != value))
+				{
+					this.OnThanhToanPhiNoChanging(value);
+					this.SendPropertyChanging();
+					this._ThanhToanPhiNo = value;
+					this.SendPropertyChanged("ThanhToanPhiNo");
+					this.OnThanhToanPhiNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhiTraTre", DbType="Float")]
+		public System.Nullable<double> PhiTraTre
+		{
+			get
+			{
+				return this._PhiTraTre;
+			}
+			set
+			{
+				if ((this._PhiTraTre != value))
+				{
+					this.OnPhiTraTreChanging(value);
+					this.SendPropertyChanging();
+					this._PhiTraTre = value;
+					this.SendPropertyChanged("PhiTraTre");
+					this.OnPhiTraTreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayTraDia", DbType="Date")]
+		public System.Nullable<System.DateTime> NgayTraDia
+		{
+			get
+			{
+				return this._NgayTraDia;
+			}
+			set
+			{
+				if ((this._NgayTraDia != value))
+				{
+					this.OnNgayTraDiaChanging(value);
+					this.SendPropertyChanging();
+					this._NgayTraDia = value;
+					this.SendPropertyChanged("NgayTraDia");
+					this.OnNgayTraDiaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HanTraDia", DbType="Date")]
+		public System.Nullable<System.DateTime> HanTraDia
+		{
+			get
+			{
+				return this._HanTraDia;
+			}
+			set
+			{
+				if ((this._HanTraDia != value))
+				{
+					this.OnHanTraDiaChanging(value);
+					this.SendPropertyChanging();
+					this._HanTraDia = value;
+					this.SendPropertyChanged("HanTraDia");
+					this.OnHanTraDiaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayThue", DbType="Date")]
+		public System.Nullable<System.DateTime> NgayThue
+		{
+			get
+			{
+				return this._NgayThue;
+			}
+			set
+			{
+				if ((this._NgayThue != value))
+				{
+					this.OnNgayThueChanging(value);
+					this.SendPropertyChanging();
+					this._NgayThue = value;
+					this.SendPropertyChanged("NgayThue");
+					this.OnNgayThueChanged();
 				}
 			}
 		}

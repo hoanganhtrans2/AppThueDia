@@ -47,6 +47,7 @@
     <Compile Include="eChiTietDonHangTieuDe.cs" />
     <Compile Include="eDiskGame.cs" />
     <Compile Include="eDonHang.cs" />
+    <Compile Include="eHuyKhoanNo.cs" />
     <Compile Include="eKhachHang.cs" />
     <Compile Include="eKHDatTruocTieuDe.cs" />
     <Compile Include="eTieuDe.cs" />

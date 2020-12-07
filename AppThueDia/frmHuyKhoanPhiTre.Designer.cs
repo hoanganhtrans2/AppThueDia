@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.ltbKhachHang = new System.Windows.Forms.ListBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dgvDonHang = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtSoDienThoai = new System.Windows.Forms.TextBox();
@@ -42,19 +41,17 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dgvChiTietDonHang = new System.Windows.Forms.DataGridView();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.ltbKhachHang = new System.Windows.Forms.ListBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnHuyPhiTre = new System.Windows.Forms.Button();
+            this.dgvDonHang = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDonHang)).BeginInit();
             this.panel4.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietDonHang)).BeginInit();
-            this.groupBox4.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDonHang)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -66,58 +63,50 @@
             this.panel1.Size = new System.Drawing.Size(200, 520);
             this.panel1.TabIndex = 0;
             // 
-            // panel3
+            // groupBox4
             // 
-            this.panel3.Controls.Add(this.groupBox3);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(200, 291);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(705, 229);
-            this.panel3.TabIndex = 6;
+            this.groupBox4.Controls.Add(this.ltbKhachHang);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox4.Location = new System.Drawing.Point(0, 0);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(200, 520);
+            this.groupBox4.TabIndex = 0;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Danh Sách Khách Hàng";
             // 
-            // groupBox3
+            // ltbKhachHang
             // 
-            this.groupBox3.Controls.Add(this.dgvChiTietDonHang);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(0, 0);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(705, 229);
-            this.groupBox3.TabIndex = 0;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Chi tiết đơn hàng";
+            this.ltbKhachHang.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ltbKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ltbKhachHang.FormattingEnabled = true;
+            this.ltbKhachHang.ItemHeight = 20;
+            this.ltbKhachHang.Location = new System.Drawing.Point(3, 16);
+            this.ltbKhachHang.Name = "ltbKhachHang";
+            this.ltbKhachHang.Size = new System.Drawing.Size(194, 501);
+            this.ltbKhachHang.TabIndex = 0;
+            this.ltbKhachHang.Click += new System.EventHandler(this.ltbKhachHang_Click);
+            this.ltbKhachHang.SelectedIndexChanged += new System.EventHandler(this.ltbKhachHang_SelectedIndexChanged);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.groupBox2);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(200, 100);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(705, 191);
+            this.panel2.Size = new System.Drawing.Size(705, 420);
             this.panel2.TabIndex = 5;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dgvDonHang);
+            this.groupBox2.Controls.Add(this.panel3);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(705, 191);
+            this.groupBox2.Size = new System.Drawing.Size(705, 420);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Đơn hàng";
-            // 
-            // dgvDonHang
-            // 
-            this.dgvDonHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDonHang.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDonHang.Location = new System.Drawing.Point(3, 16);
-            this.dgvDonHang.Name = "dgvDonHang";
-            this.dgvDonHang.ReadOnly = true;
-            this.dgvDonHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDonHang.Size = new System.Drawing.Size(699, 172);
-            this.dgvDonHang.TabIndex = 0;
-            this.dgvDonHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDonHang_CellClick);
-            this.dgvDonHang.Click += new System.EventHandler(this.dgvDonHang_Click);
             // 
             // panel4
             // 
@@ -198,46 +187,42 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Tên khách hàng:";
             // 
-            // dgvChiTietDonHang
+            // panel3
             // 
-            this.dgvChiTietDonHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvChiTietDonHang.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvChiTietDonHang.Location = new System.Drawing.Point(3, 16);
-            this.dgvChiTietDonHang.Name = "dgvChiTietDonHang";
-            this.dgvChiTietDonHang.ReadOnly = true;
-            this.dgvChiTietDonHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvChiTietDonHang.Size = new System.Drawing.Size(699, 210);
-            this.dgvChiTietDonHang.TabIndex = 0;
+            this.panel3.Controls.Add(this.btnHuyPhiTre);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(3, 363);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(699, 54);
+            this.panel3.TabIndex = 1;
             // 
-            // groupBox4
+            // btnHuyPhiTre
             // 
-            this.groupBox4.Controls.Add(this.ltbKhachHang);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(0, 0);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(200, 520);
-            this.groupBox4.TabIndex = 0;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Danh Sách Khách Hàng";
+            this.btnHuyPhiTre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHuyPhiTre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHuyPhiTre.Location = new System.Drawing.Point(552, 13);
+            this.btnHuyPhiTre.Name = "btnHuyPhiTre";
+            this.btnHuyPhiTre.Size = new System.Drawing.Size(125, 32);
+            this.btnHuyPhiTre.TabIndex = 6;
+            this.btnHuyPhiTre.Text = "Hủy phí trễ";
+            this.btnHuyPhiTre.UseVisualStyleBackColor = true;
+            this.btnHuyPhiTre.Click += new System.EventHandler(this.btnHuyPhiTre_Click);
             // 
-            // ltbKhachHang
+            // dgvDonHang
             // 
-            this.ltbKhachHang.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ltbKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ltbKhachHang.FormattingEnabled = true;
-            this.ltbKhachHang.ItemHeight = 20;
-            this.ltbKhachHang.Location = new System.Drawing.Point(3, 16);
-            this.ltbKhachHang.Name = "ltbKhachHang";
-            this.ltbKhachHang.Size = new System.Drawing.Size(194, 501);
-            this.ltbKhachHang.TabIndex = 0;
-            this.ltbKhachHang.Click += new System.EventHandler(this.ltbKhachHang_Click);
+            this.dgvDonHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDonHang.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDonHang.Location = new System.Drawing.Point(3, 16);
+            this.dgvDonHang.Name = "dgvDonHang";
+            this.dgvDonHang.Size = new System.Drawing.Size(699, 347);
+            this.dgvDonHang.TabIndex = 2;
+            this.dgvDonHang.Click += new System.EventHandler(this.dgvDonHang_Click);
             // 
             // frmHuyKhoanPhiTre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(905, 520);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
@@ -247,16 +232,14 @@
             this.Text = "Hủy Khoản Phí Trả Trễ";
             this.Load += new System.EventHandler(this.frmHuyKhoanPhiTre_Load);
             this.panel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDonHang)).EndInit();
             this.panel4.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietDonHang)).EndInit();
-            this.groupBox4.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDonHang)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -266,12 +249,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.ListBox ltbKhachHang;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dgvChiTietDonHang;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dgvDonHang;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtSoDienThoai;
@@ -280,5 +259,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button btnHuyPhiTre;
+        private System.Windows.Forms.DataGridView dgvDonHang;
     }
 }

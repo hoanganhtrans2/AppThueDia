@@ -19,8 +19,8 @@ namespace AppThueDia
             InitializeComponent();
         }
         KhachHangBUS khachHangBUS;
-        ChiTietDonHangBUS chiTietDonHangBUS;
-        DonHangBUS donHangBUS;
+
+        HuyKhoanNoBUS huyKhoanNoBUS;
         BindingSource bsKhachHang;
         BindingSource bsDonHang;
         private string currenMaKhachHang;
@@ -30,39 +30,27 @@ namespace AppThueDia
             khachHangBUS = new KhachHangBUS();
             bsKhachHang = new BindingSource();
             bsDonHang = new BindingSource();
-            donHangBUS = new DonHangBUS();
+            huyKhoanNoBUS = new HuyKhoanNoBUS();
             bsKhachHang.DataSource = khachHangBUS.getAllKhachHang();
             ltbKhachHang.DataSource = bsKhachHang;
             ltbKhachHang.DisplayMember = "TenKhachHang";
             ltbKhachHang.ValueMember = "MaKhachHang";
-            
-
-
+           
         }
         public void CustomGirdView()
         {
-            
+            dgvDonHang.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDonHang.ReadOnly = true;
             dgvDonHang.AutoSizeColumnsMode =
             DataGridViewAutoSizeColumnsMode.AllCells;
-           // dgvDonHang.Columns["MaDonHang"].Visible = false;
-            
+            dgvDonHang.Columns["MaDonHang"].Visible = false;
+            dgvDonHang.Columns["MaDia"].Visible = false;
+            dgvDonHang.Columns["MaTieuDe"].Visible = false;
+            dgvDonHang.Columns["ThanhToanPhiNo"].Visible = false; 
+            dgvDonHang.Columns["MaKhachHang"].Visible = false; 
         }
 
-        public void CustomGirdViewChiTietDonHang()
-        {
-
-            dgvChiTietDonHang.ReadOnly = true;
-            dgvChiTietDonHang.AutoSizeColumnsMode =
-            DataGridViewAutoSizeColumnsMode.AllCells;
-            dgvChiTietDonHang.Columns["MaDia"].Visible = false;
-            dgvChiTietDonHang.Columns["MaTieuDe"].Visible = false;
-            dgvChiTietDonHang.Columns["TrangThai"].Visible = false;
-            dgvChiTietDonHang.Columns["SoLuongDia"].Visible = false;
-            dgvChiTietDonHang.Columns["Deleted"].Visible = false;
-            dgvChiTietDonHang.Columns["DeletedDiskDVDGame"].Visible = false;
-
-        }
+        
 
 
 
@@ -80,7 +68,7 @@ namespace AppThueDia
                 string mahk = ltbKhachHang.SelectedValue.ToString();
                 currenMaKhachHang = mahk;
                 eKhachHang khachHang = new eKhachHang();
-                bsDonHang.DataSource = donHangBUS.getDonHangCuaKhachHang(mahk);
+                bsDonHang.DataSource = huyKhoanNoBUS.getChiTietDonHangCuaKhachHang(mahk);
                 khachHang = khachHangBUS.getKhachHangById(mahk);
                 if(khachHang!=null)
                 {
@@ -89,41 +77,17 @@ namespace AppThueDia
                 dgvDonHang.DataSource = bsDonHang;
                 CustomGirdView();
 
-                if(dgvDonHang.Rows.Count>=1)
-                {
-                    //eDonHang donHang = (eDonHang)bsDonHang.Current;
-                    //if (donHang != null)
-                    //{
-                    //    List<eTieuDeGameDVD> ls = new List<eTieuDeGameDVD>();
-                    //    ls = chiTietDonHangBUS.getChiTietDonHang(donHang.MaDonHang);
-                    //    if (ls != null)
-                    //    {
-                    //        dgvChiTietDonHang.DataSource = ls;
-                    //        CustomGirdViewChiTietDonHang();
-                    //    }
-                    //}
-                }    
+                
             }
         }
 
-        eDonHang currentDonHang = new eDonHang();
+        eHuyKhoanNo curtenHuyKhoanNo;
         private void dgvDonHang_Click(object sender, EventArgs e)
         {
             try
             {
-                eDonHang donHang = (eDonHang)bsDonHang.Current;
-                currentDonHang = donHang;
-                if (donHang != null)
-                {
-                    chiTietDonHangBUS = new ChiTietDonHangBUS();
-                    List<eTieuDeGameDVD> ls = new List<eTieuDeGameDVD>();
-                    ls = chiTietDonHangBUS.getChiTietDonHang(donHang.MaDonHang);
-                    if (ls!=null)
-                    {
-                        dgvChiTietDonHang.DataSource = ls;
-                        CustomGirdViewChiTietDonHang();
-                    }
-                }
+                curtenHuyKhoanNo = (eHuyKhoanNo)bsDonHang.Current;
+               
             }
             catch
             {
@@ -131,30 +95,39 @@ namespace AppThueDia
             }
         }
 
-        private void dgvDonHang_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void btnHuyPhiTre_Click(object sender, EventArgs e)
         {
-            if(currentDonHang.ThanhToanPhiNo == "Hủy khoản nợ"&& e.ColumnIndex == 6)
+            if (curtenHuyKhoanNo != null)
             {
-                MessageBox.Show("Khoản nợ đã được hủy");
-            }
-            if (e.ColumnIndex == 6 && currentDonHang.ThanhToanPhiNo!= "Hủy khoản nợ")
-            {
-                eDonHang donHang = currentDonHang;
                 DialogResult dlgHoiXoa;
-                dlgHoiXoa = MessageBox.Show("Xác nhận hủy khoản phí trả trể", "Hỏi xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                dlgHoiXoa = MessageBox.Show("Xác nhận hủy khoản nợ của khách hàng", "Hỏi xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                 if (dlgHoiXoa == DialogResult.Yes)
                 {
-                    if (donHangBUS.huyPhiTraTre(donHang.MaDonHang))
-                    {
-                        MessageBox.Show("Hủy khoản nợ thành công");
-                        bsDonHang.DataSource = donHangBUS.getDonHangCuaKhachHang(currenMaKhachHang);             
-                        dgvDonHang.DataSource = bsDonHang;
-                    }
-                    else MessageBox.Show("Hủy khoản nợ thất bại");
-                    
-                }
 
+                    if (huyKhoanNoBUS.huyPhiTraTre(curtenHuyKhoanNo))
+                    {
+                        MessageBox.Show("Hủy thành công");
+                        bsDonHang.DataSource = huyKhoanNoBUS.getChiTietDonHangCuaKhachHang(curtenHuyKhoanNo.MaKhachHang);
+                        CustomGirdView();
+                    }
+                    else MessageBox.Show("Hủy thất bại");
+
+                }
             }
+            else
+            {
+                MessageBox.Show("Chọn khoản nợ cần hủy");
+            }
+        }
+
+        private void dgvDonHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void ltbKhachHang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

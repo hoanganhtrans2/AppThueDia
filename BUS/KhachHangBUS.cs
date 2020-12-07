@@ -27,5 +27,20 @@ namespace BUS
         {
             return dAL.getKhachHangById(makh);
         }
+
+        public List<eKhachHang> getDanhSachKhachHangCoMatHangQuahang()
+        {
+            return dAL.getDanhSachKhachHangCoMatHangQuahang();
+        }
+
+        public List<eKhachHang> getDanhSachKhachHangTreNo()
+        {
+            return dAL.getDanhSachKhachHangTreNo();
+        }
+
+        public List<eHuyKhoanNo> getThongTinDiaKhachHangChuaTra(string makh)
+        {
+            return dAL.getThongTinDiaKhachHangChuaTra(makh);
+        }
     }
 }

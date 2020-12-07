@@ -30,7 +30,11 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dgvBaoCao = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBaoCao)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -58,18 +62,40 @@
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.dgvBaoCao);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 47);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(904, 438);
+            this.panel2.TabIndex = 1;
+            // 
+            // dgvBaoCao
+            // 
+            this.dgvBaoCao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBaoCao.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvBaoCao.Location = new System.Drawing.Point(0, 0);
+            this.dgvBaoCao.Name = "dgvBaoCao";
+            this.dgvBaoCao.Size = new System.Drawing.Size(904, 438);
+            this.dgvBaoCao.TabIndex = 0;
+            // 
             // frmBaoCaoTieuDe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(904, 485);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmBaoCaoTieuDe";
             this.Text = "frmBaoCaoTieuDe";
+            this.Load += new System.EventHandler(this.frmBaoCaoTieuDe_Load);
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBaoCao)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -78,5 +104,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView dgvBaoCao;
     }
 }

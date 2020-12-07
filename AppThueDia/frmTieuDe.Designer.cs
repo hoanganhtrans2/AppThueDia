@@ -161,6 +161,8 @@
             this.cbLoaiDia.Name = "cbLoaiDia";
             this.cbLoaiDia.Size = new System.Drawing.Size(171, 27);
             this.cbLoaiDia.TabIndex = 11;
+            this.cbLoaiDia.SelectedIndexChanged += new System.EventHandler(this.cbLoaiDia_SelectedIndexChanged);
+            this.cbLoaiDia.SelectionChangeCommitted += new System.EventHandler(this.cbLoaiDia_SelectionChangeCommitted);
             // 
             // txtSoNgay
             // 

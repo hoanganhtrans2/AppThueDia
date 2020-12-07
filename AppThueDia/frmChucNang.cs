@@ -115,5 +115,15 @@ namespace AppThueDia
             f.Dock = DockStyle.Fill;
             f.Show();
         }
+
+        private void baoCaoKhachHang_Click(object sender, EventArgs e)
+        {
+            pnMain.Controls.Clear();
+            frmBaoCaoKhachHang f = new frmBaoCaoKhachHang();
+            f.TopLevel = false;
+            pnMain.Controls.Add(f);
+            f.Dock = DockStyle.Fill;
+            f.Show();
+        }
     }
 }

@@ -27,7 +27,7 @@ namespace AppThueDia
             tieuDeBUS = new TieuDeBUS();
             bsTieuDe = new BindingSource();
             lsTieuDe = new List<eTieuDe>();
-            loaiDia = new List<string>() { "DVD", "MOVIE" };
+            loaiDia = new List<string>() { "GAME", "MOVIE" };
             cbLoaiDia.DataSource = loaiDia;
             bsTieuDe.DataSource = tieuDeBUS.getAllTieuDe();
             dgvDSDia.DataSource = bsTieuDe;
@@ -80,16 +80,20 @@ namespace AppThueDia
         }
         public bool kiemTraThongTinNhap()
         {
-            if (taoTieuDe() != null) return true;
+            eTieuDe tieuDe = taoTieuDe();
+            if (tieuDe!=null&&tieuDe.TieuDe.Length>0) return true;
             return false;
         }
 
         public void choPhepNhapThongTin()
         {
-
+            
+            eTieuDe temp = tieuDeBUS.getTieuDeTheoLoai(cbLoaiDia.Text);
+            txtGiaThue.Text = temp.GiaThue.ToString();
+            txtSoNgay.Text = temp.SoNgayDuocThue.ToString();
             txtTieuDe.Enabled = true;
-            txtGiaThue.Enabled = true;
-            txtSoNgay.Enabled = true;
+            txtGiaThue.Enabled = false;
+            txtSoNgay.Enabled = false;
             txtTrangThai.Enabled = false;
             txtMaDia.Enabled = true;
             txtSoLuong.Text = "0";
@@ -110,7 +114,7 @@ namespace AppThueDia
             txtTrangThai.Enabled = false;
             txtMaDia.Enabled = true;
             txtSoLuong.Text = "";
-            List<string> loaiDia = new List<string>() { "DVD", "MOVIE" };
+            List<string> loaiDia = new List<string>() { "GAME", "MOVIE" };
             cbLoaiDia.DataSource = loaiDia;
         }
 
@@ -213,6 +217,32 @@ namespace AppThueDia
                     else MessageBox.Show("Xóa thất bại");
 
                 }
+            }
+        }
+
+        private void cbLoaiDia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            
+        }
+
+        private void cbLoaiDia_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            eTieuDe temp = new eTieuDe();
+            switch (cbLoaiDia.SelectedIndex)
+            {
+
+                case 0:
+                    temp = tieuDeBUS.getTieuDeTheoLoai("GAME");
+                    txtGiaThue.Text = temp.GiaThue.ToString();
+                    txtSoNgay.Text = temp.SoNgayDuocThue.ToString();
+                    break;
+                default:
+                    temp = tieuDeBUS.getTieuDeTheoLoai("MOVIE");
+                    txtGiaThue.Text = temp.GiaThue.ToString();
+                    txtSoNgay.Text = temp.SoNgayDuocThue.ToString();
+                    break;
+
             }
         }
     }

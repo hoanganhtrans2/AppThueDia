@@ -28,5 +28,10 @@ namespace BUS
             return deDAL.deleteTieuDe(id);
         }
 
+        public eTieuDe getTieuDeTheoLoai(string loai)
+        {
+            return deDAL.getTieuDeTheoLoai(loai);
+        }
+
     }
 }

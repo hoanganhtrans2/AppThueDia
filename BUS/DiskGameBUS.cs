@@ -26,5 +26,14 @@ namespace BUS
         {
             return diskGameDVDDAL.deleteDia(id);
         }
+        public List<eHuyKhoanNo> getThongTinDiaKhachHangChuaTra(string makh)
+        {
+            return diskGameDVDDAL.getThongTinDiaKhachHangChuaTra(makh);
+        }
+
+        public List<eHuyKhoanNo> getThongTinKhachHangDangNo(string makh)
+        {
+            return diskGameDVDDAL.getThongTinKhachHangDangNo(makh);
+        }
     }
 }

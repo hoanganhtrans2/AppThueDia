@@ -38,9 +38,6 @@ namespace BUS
             return dAL.getDanhSachKhachHangTreNo();
         }
 
-        public List<eHuyKhoanNo> getThongTinDiaKhachHangChuaTra(string makh)
-        {
-            return dAL.getThongTinDiaKhachHangChuaTra(makh);
-        }
+        
     }
 }

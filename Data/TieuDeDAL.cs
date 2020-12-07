@@ -63,5 +63,24 @@ namespace Data
             }
             return true;
         }
+
+        public eTieuDe getTieuDeTheoLoai(string loai)
+        {
+            
+           var tieude = db.TieuDes.Where(td => td.Deleted == false && td.LoaiDia==loai).FirstOrDefault();
+            if (tieude != null)
+            {
+                eTieuDe eTd = new eTieuDe();
+                eTd.GiaThue =(float)tieude.GiaThue;
+                eTd.LoaiDia = tieude.LoaiDia;
+                eTd.MaTieuDe = tieude.MaTieuDe;
+                eTd.SoLuongDia = tieude.SoLuongDia;
+                eTd.SoNgayDuocThue = tieude.SoNgayDuocThue;
+                eTd.TieuDe = tieude.TieuDe1;
+                return eTd;
+
+            }
+            return null;
+        }
     }
 }

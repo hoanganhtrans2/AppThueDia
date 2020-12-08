@@ -15,31 +15,43 @@ namespace Data
             db = new dbQuanLyDiaDataContext();
         }
 
-        public List<eDonHang> getDonHangCuaKhachHang(string maKh)
+        public List<eADonHang> getDonHangCuaKhachHang(string maKh)
         {
-            List<eDonHang> ls = new List<eDonHang>();
-            IEnumerable<DonHang> dsdh = db.DonHangs.Where(dhang => dhang.MaKhachHang.Trim()==maKh.Trim());
-            foreach (DonHang dh in dsdh)
+            List<eADonHang> ls = new List<eADonHang>();
+            var dsdh = from dhang in db.DonHangs
+                       join ctdh in db.ChiTietDonHangs on dhang.MaDonHang equals ctdh.MaDonHang
+                       where dhang.MaDonHang.Trim() == maKh.Trim()
+                       select new eADonHang
+                       {
+                           MaDonHang = dhang.MaDonHang,
+                           HanTraDia = (DateTime)ctdh.HanTraDia,
+                           NgayTraDia = (DateTime)ctdh.NgayTraDia,
+                           NgayThue = (DateTime)dhang.NgayThue,
+                           PhiTraTre = (float)ctdh.PhiTraTre,
+                           ThanhToanPhiNo = ctdh.ThanhToanPhiNo,
+                       };
+                //db.DonHangs.Where(dhang => dhang.MaKhachHang.Trim()==maKh.Trim());
+            foreach (eADonHang dh in dsdh)
             {
-                eDonHang donHang = new eDonHang();
+                eADonHang donHang = new eADonHang();
                 donHang.MaDonHang = dh.MaDonHang;
                 donHang.HanTraDia = dh.HanTraDia;
-                donHang.NgayTraDia = dh.NgayTraDia;
-                donHang.NgayThue = dh.NgayThue;
+                donHang.NgayTraDia =(DateTime)dh.NgayTraDia;
+                donHang.NgayThue = (DateTime)dh.NgayThue;
                 donHang.PhiTraTre =(float)dh.PhiTraTre;
                 donHang.ThanhToanPhiNo = dh.ThanhToanPhiNo;
-                donHang.HuyPhiTre = donHang.ThanhToanPhiNo == "Hủy khoản nợ" ? true : false;
+                //donHang.HuyPhiTre = donHang.ThanhToanPhiNo == "Hủy khoản nợ" ? true : false;
                 ls.Add(donHang);
             }
             return ls;
         }
 
-        public bool huyPhiTraTre(string madh)
+        public bool huyPhiTraTre(string madh, string madia)
         {
-            DonHang donHang = new DonHang();
-            var temp = db.DonHangs.Where(dh => dh.MaDonHang.Trim()==madh.Trim()).FirstOrDefault();
-            donHang = (DonHang)temp;
-            donHang.ThanhToanPhiNo = "Hủy khoản nợ";
+            ChiTietDonHang donHang = new ChiTietDonHang();
+            var temp = db.ChiTietDonHangs.Where(dh => dh.MaDonHang.Trim()==madh.Trim() && dh.MaDia.Trim()==madia.Trim()).FirstOrDefault();
+            donHang = (ChiTietDonHang)temp;
+            donHang.ThanhToanPhiNo = false;
             try
             {
                 db.SubmitChanges();

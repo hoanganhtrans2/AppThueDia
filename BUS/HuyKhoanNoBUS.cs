@@ -15,12 +15,12 @@ namespace BUS
         {
             huyKhoan = new HuyKhoanNoDAL();
         }
-        public List<eHuyKhoanNo> getChiTietDonHangCuaKhachHang(string makh)
+        public List<eAHuyKhoanNo> getChiTietDonHangCuaKhachHang(string makh)
         {
             return huyKhoan.getChiTietDonHangCuaKhachHang(makh);
         }
 
-        public bool huyPhiTraTre(eHuyKhoanNo huyKhoanNo)
+        public bool huyPhiTraTre(eAHuyKhoanNo huyKhoanNo)
         {
             return huyKhoan.huyPhiTraTre(huyKhoanNo);
         }

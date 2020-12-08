@@ -16,7 +16,7 @@ namespace BUS
             chiTietDonhangDAL = new ChiTietDonHangDAL();
         }
 
-        public List<eTieuDeGameDVD> getChiTietDonHang(string madh)
+        public List<eATieuDeGameDVD> getChiTietDonHang(string madh)
         {
             return chiTietDonhangDAL.getChiTietDonHang(madh);
         }

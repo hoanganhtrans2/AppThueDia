@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.GroupBox groupBox2;
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblSoNgayChoThueMOVIE = new System.Windows.Forms.Label();
+            this.lblGiaChoThueMOVIE = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,28 +43,94 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblSoNgayChoThueMOVIE = new System.Windows.Forms.Label();
-            this.lblGiaChoThueMOVIE = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.mudSoNgayDuocThue = new System.Windows.Forms.NumericUpDown();
+            this.cboLoaiDiaThue = new System.Windows.Forms.ComboBox();
             this.btnHuy = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
             this.txtGiaThue = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.cboLoaiDiaThue = new System.Windows.Forms.ComboBox();
-            this.mudSoNgayDuocThue = new System.Windows.Forms.NumericUpDown();
             groupBox2 = new System.Windows.Forms.GroupBox();
+            groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mudSoNgayDuocThue)).BeginInit();
             this.SuspendLayout();
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(this.label6);
+            groupBox2.Controls.Add(this.lblSoNgayChoThueMOVIE);
+            groupBox2.Controls.Add(this.lblGiaChoThueMOVIE);
+            groupBox2.Controls.Add(this.label10);
+            groupBox2.Controls.Add(this.label5);
+            groupBox2.Controls.Add(this.label4);
+            groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            groupBox2.Location = new System.Drawing.Point(0, 164);
+            groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            groupBox2.Size = new System.Drawing.Size(291, 199);
+            groupBox2.TabIndex = 2;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Thông tin đĩa MOVIE";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(35, 109);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(137, 20);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Số ngày cho thuê:";
+            // 
+            // lblSoNgayChoThueMOVIE
+            // 
+            this.lblSoNgayChoThueMOVIE.AutoSize = true;
+            this.lblSoNgayChoThueMOVIE.Location = new System.Drawing.Point(178, 109);
+            this.lblSoNgayChoThueMOVIE.Name = "lblSoNgayChoThueMOVIE";
+            this.lblSoNgayChoThueMOVIE.Size = new System.Drawing.Size(56, 20);
+            this.lblSoNgayChoThueMOVIE.TabIndex = 0;
+            this.lblSoNgayChoThueMOVIE.Text = "0 ngày";
+            // 
+            // lblGiaChoThueMOVIE
+            // 
+            this.lblGiaChoThueMOVIE.AutoSize = true;
+            this.lblGiaChoThueMOVIE.Location = new System.Drawing.Point(145, 73);
+            this.lblGiaChoThueMOVIE.Name = "lblGiaChoThueMOVIE";
+            this.lblGiaChoThueMOVIE.Size = new System.Drawing.Size(31, 20);
+            this.lblGiaChoThueMOVIE.TabIndex = 0;
+            this.lblGiaChoThueMOVIE.Text = "0 đ";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(109, 38);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(61, 20);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "MOVIE";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(35, 73);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(104, 20);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Giá cho thuê:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(35, 38);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 20);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Loại đĩa:";
             // 
             // panel1
             // 
@@ -142,78 +214,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Loại đĩa:";
             // 
-            // groupBox2
-            // 
-            groupBox2.Controls.Add(this.label6);
-            groupBox2.Controls.Add(this.lblSoNgayChoThueMOVIE);
-            groupBox2.Controls.Add(this.lblGiaChoThueMOVIE);
-            groupBox2.Controls.Add(this.label10);
-            groupBox2.Controls.Add(this.label5);
-            groupBox2.Controls.Add(this.label4);
-            groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            groupBox2.Location = new System.Drawing.Point(0, 164);
-            groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            groupBox2.Size = new System.Drawing.Size(291, 199);
-            groupBox2.TabIndex = 2;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Thông tin đĩa MOVIE";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(35, 109);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(137, 20);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Số ngày cho thuê:";
-            // 
-            // lblSoNgayChoThueMOVIE
-            // 
-            this.lblSoNgayChoThueMOVIE.AutoSize = true;
-            this.lblSoNgayChoThueMOVIE.Location = new System.Drawing.Point(178, 109);
-            this.lblSoNgayChoThueMOVIE.Name = "lblSoNgayChoThueMOVIE";
-            this.lblSoNgayChoThueMOVIE.Size = new System.Drawing.Size(56, 20);
-            this.lblSoNgayChoThueMOVIE.TabIndex = 0;
-            this.lblSoNgayChoThueMOVIE.Text = "0 ngày";
-            // 
-            // lblGiaChoThueMOVIE
-            // 
-            this.lblGiaChoThueMOVIE.AutoSize = true;
-            this.lblGiaChoThueMOVIE.Location = new System.Drawing.Point(145, 73);
-            this.lblGiaChoThueMOVIE.Name = "lblGiaChoThueMOVIE";
-            this.lblGiaChoThueMOVIE.Size = new System.Drawing.Size(31, 20);
-            this.lblGiaChoThueMOVIE.TabIndex = 0;
-            this.lblGiaChoThueMOVIE.Text = "0 đ";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(109, 38);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(61, 20);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "MOVIE";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(35, 73);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 20);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Giá cho thuê:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(35, 38);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 20);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Loại đĩa:";
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.mudSoNgayDuocThue);
@@ -231,6 +231,22 @@
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Cập nhật thông tin cho thuê";
+            // 
+            // mudSoNgayDuocThue
+            // 
+            this.mudSoNgayDuocThue.Location = new System.Drawing.Point(36, 215);
+            this.mudSoNgayDuocThue.Name = "mudSoNgayDuocThue";
+            this.mudSoNgayDuocThue.Size = new System.Drawing.Size(211, 26);
+            this.mudSoNgayDuocThue.TabIndex = 4;
+            // 
+            // cboLoaiDiaThue
+            // 
+            this.cboLoaiDiaThue.FormattingEnabled = true;
+            this.cboLoaiDiaThue.Location = new System.Drawing.Point(32, 62);
+            this.cboLoaiDiaThue.Name = "cboLoaiDiaThue";
+            this.cboLoaiDiaThue.Size = new System.Drawing.Size(219, 28);
+            this.cboLoaiDiaThue.TabIndex = 3;
+            this.cboLoaiDiaThue.SelectionChangeCommitted += new System.EventHandler(this.cboLoaiDiaThue_SelectionChangeCommitted);
             // 
             // btnHuy
             // 
@@ -259,6 +275,15 @@
             this.txtGiaThue.Size = new System.Drawing.Size(219, 26);
             this.txtGiaThue.TabIndex = 1;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(32, 38);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(104, 20);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Chọn loại đĩa ";
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -277,31 +302,6 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Nhập số ngày được thuê";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(32, 38);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(104, 20);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Chọn loại đĩa ";
-            // 
-            // cboLoaiDiaThue
-            // 
-            this.cboLoaiDiaThue.FormattingEnabled = true;
-            this.cboLoaiDiaThue.Location = new System.Drawing.Point(32, 62);
-            this.cboLoaiDiaThue.Name = "cboLoaiDiaThue";
-            this.cboLoaiDiaThue.Size = new System.Drawing.Size(219, 28);
-            this.cboLoaiDiaThue.TabIndex = 3;
-            this.cboLoaiDiaThue.SelectionChangeCommitted += new System.EventHandler(this.cboLoaiDiaThue_SelectionChangeCommitted);
-            // 
-            // mudSoNgayDuocThue
-            // 
-            this.mudSoNgayDuocThue.Location = new System.Drawing.Point(36, 215);
-            this.mudSoNgayDuocThue.Name = "mudSoNgayDuocThue";
-            this.mudSoNgayDuocThue.Size = new System.Drawing.Size(211, 26);
-            this.mudSoNgayDuocThue.TabIndex = 4;
-            // 
             // frmCapNhatThongTinThue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -314,12 +314,13 @@
             this.Name = "frmCapNhatThongTinThue";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cập nhật thông tin cho thuê";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCapNhatThongTinThue_FormClosing);
             this.Load += new System.EventHandler(this.frmCapNhatThongTinThue_Load);
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mudSoNgayDuocThue)).EndInit();

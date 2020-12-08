@@ -43,12 +43,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaoCaoTieuDeBUS.cs" />
+    <Compile Include="BUS_ChiTietHoaDon.cs" />
+    <Compile Include="BUS_Disk.cs" />
+    <Compile Include="BUS_DonHang.cs" />
+    <Compile Include="BUS_KhachHang.cs" />
+    <Compile Include="BUS_TieuDe.cs" />
     <Compile Include="ChiTietDonHangBUS.cs" />
     <Compile Include="DiskGameBUS.cs" />
     <Compile Include="DonHangBUS.cs" />
     <Compile Include="HuyKhoanNoBUS.cs" />
     <Compile Include="KhachHangBUS.cs" />
-    <Compile Include="KhachHangDatTruocTieuDeBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TieuDeBUS.cs" />
   </ItemGroup>

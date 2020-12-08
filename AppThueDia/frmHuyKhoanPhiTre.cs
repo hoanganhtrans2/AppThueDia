@@ -81,12 +81,12 @@ namespace AppThueDia
             }
         }
 
-        eHuyKhoanNo curtenHuyKhoanNo;
+        eAHuyKhoanNo curtenHuyKhoanNo;
         private void dgvDonHang_Click(object sender, EventArgs e)
         {
             try
             {
-                curtenHuyKhoanNo = (eHuyKhoanNo)bsDonHang.Current;
+                curtenHuyKhoanNo = (eAHuyKhoanNo)bsDonHang.Current;
                
             }
             catch

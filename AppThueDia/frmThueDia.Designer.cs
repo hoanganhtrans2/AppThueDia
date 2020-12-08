@@ -32,6 +32,8 @@
             this.txtMaDia = new System.Windows.Forms.TextBox();
             this.btnThue = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtMaKhachHang = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtLoaiDia = new System.Windows.Forms.TextBox();
             this.txtSoNgay = new System.Windows.Forms.TextBox();
@@ -42,18 +44,16 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnXoaItem = new System.Windows.Forms.Button();
             this.lvDiaThue = new System.Windows.Forms.ListView();
+            this.maDia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tieuDe = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.MaDia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.TieuDe = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label8 = new System.Windows.Forms.Label();
+            this.txtTongThanhTien = new System.Windows.Forms.TextBox();
             this.txtPhiTraTre = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtTongThanhTien = new System.Windows.Forms.TextBox();
-            this.cbPhiTraTre = new System.Windows.Forms.CheckBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -76,6 +76,7 @@
             this.txtMaDia.Name = "txtMaDia";
             this.txtMaDia.Size = new System.Drawing.Size(276, 35);
             this.txtMaDia.TabIndex = 2;
+            this.txtMaDia.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMaDia_KeyDown);
             // 
             // btnThue
             // 
@@ -86,10 +87,11 @@
             this.btnThue.TabIndex = 3;
             this.btnThue.Text = "Thuê";
             this.btnThue.UseVisualStyleBackColor = true;
+            this.btnThue.Click += new System.EventHandler(this.btnThue_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtMaKhachHang);
             this.groupBox1.Controls.Add(this.txtMaDia);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label1);
@@ -99,6 +101,23 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tìm đĩa";
+            // 
+            // txtMaKhachHang
+            // 
+            this.txtMaKhachHang.Location = new System.Drawing.Point(217, 57);
+            this.txtMaKhachHang.Name = "txtMaKhachHang";
+            this.txtMaKhachHang.Size = new System.Drawing.Size(276, 35);
+            this.txtMaKhachHang.TabIndex = 2;
+            this.txtMaKhachHang.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMaKhachHang_KeyDown);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(57, 57);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(154, 27);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Mã khác hàng:";
             // 
             // groupBox2
             // 
@@ -144,6 +163,7 @@
             // txtTieuDe
             // 
             this.txtTieuDe.Enabled = false;
+            this.txtTieuDe.ForeColor = System.Drawing.Color.Black;
             this.txtTieuDe.Location = new System.Drawing.Point(245, 49);
             this.txtTieuDe.Name = "txtTieuDe";
             this.txtTieuDe.Size = new System.Drawing.Size(276, 35);
@@ -187,6 +207,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnXoaItem);
             this.groupBox3.Controls.Add(this.lvDiaThue);
             this.groupBox3.Location = new System.Drawing.Point(5, 338);
             this.groupBox3.Name = "groupBox3";
@@ -194,6 +215,43 @@
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Danh sách đĩa thuê:";
+            // 
+            // btnXoaItem
+            // 
+            this.btnXoaItem.Enabled = false;
+            this.btnXoaItem.Location = new System.Drawing.Point(440, 285);
+            this.btnXoaItem.Name = "btnXoaItem";
+            this.btnXoaItem.Size = new System.Drawing.Size(135, 39);
+            this.btnXoaItem.TabIndex = 1;
+            this.btnXoaItem.Text = "Bỏ đĩa";
+            this.btnXoaItem.UseVisualStyleBackColor = true;
+            this.btnXoaItem.Click += new System.EventHandler(this.btnXoaItem_Click);
+            // 
+            // lvDiaThue
+            // 
+            this.lvDiaThue.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.maDia,
+            this.tieuDe});
+            this.lvDiaThue.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lvDiaThue.FullRowSelect = true;
+            this.lvDiaThue.GridLines = true;
+            this.lvDiaThue.Location = new System.Drawing.Point(3, 31);
+            this.lvDiaThue.Name = "lvDiaThue";
+            this.lvDiaThue.Size = new System.Drawing.Size(575, 246);
+            this.lvDiaThue.TabIndex = 0;
+            this.lvDiaThue.UseCompatibleStateImageBehavior = false;
+            this.lvDiaThue.SelectedIndexChanged += new System.EventHandler(this.lvDiaThue_SelectedIndexChanged);
+            // 
+            // maDia
+            // 
+            this.maDia.Text = "Mã đĩa";
+            this.maDia.Width = 200;
+            // 
+            // tieuDe
+            // 
+            this.tieuDe.Text = "Tiêu đề";
+            this.tieuDe.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tieuDe.Width = 350;
             // 
             // label6
             // 
@@ -208,37 +266,8 @@
             this.label6.Text = "THUÊ ĐĨA";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(57, 57);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(154, 27);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Mã khác hàng:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(217, 57);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(276, 35);
-            this.textBox1.TabIndex = 2;
-            // 
-            // lvDiaThue
-            // 
-            this.lvDiaThue.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.MaDia,
-            this.TieuDe});
-            this.lvDiaThue.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvDiaThue.Location = new System.Drawing.Point(3, 31);
-            this.lvDiaThue.Name = "lvDiaThue";
-            this.lvDiaThue.Size = new System.Drawing.Size(575, 296);
-            this.lvDiaThue.TabIndex = 0;
-            this.lvDiaThue.UseCompatibleStateImageBehavior = false;
-            // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.cbPhiTraTre);
             this.groupBox4.Controls.Add(this.txtTongThanhTien);
             this.groupBox4.Controls.Add(this.txtPhiTraTre);
             this.groupBox4.Controls.Add(this.label9);
@@ -251,28 +280,18 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Phiếu thu";
             // 
-            // MaDia
+            // txtTongThanhTien
             // 
-            this.MaDia.Text = "Mã Đĩa";
-            // 
-            // TieuDe
-            // 
-            this.TieuDe.Text = "Tiêu Đề";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(83, 69);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(114, 27);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Phí trả trễ:";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
+            this.txtTongThanhTien.Enabled = false;
+            this.txtTongThanhTien.Location = new System.Drawing.Point(203, 188);
+            this.txtTongThanhTien.Name = "txtTongThanhTien";
+            this.txtTongThanhTien.Size = new System.Drawing.Size(280, 35);
+            this.txtTongThanhTien.TabIndex = 1;
             // 
             // txtPhiTraTre
             // 
             this.txtPhiTraTre.Enabled = false;
-            this.txtPhiTraTre.Location = new System.Drawing.Point(203, 66);
+            this.txtPhiTraTre.Location = new System.Drawing.Point(203, 110);
             this.txtPhiTraTre.Name = "txtPhiTraTre";
             this.txtPhiTraTre.Size = new System.Drawing.Size(280, 35);
             this.txtPhiTraTre.TabIndex = 1;
@@ -286,23 +305,14 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "Tổng thành tiền:";
             // 
-            // txtTongThanhTien
+            // label8
             // 
-            this.txtTongThanhTien.Enabled = false;
-            this.txtTongThanhTien.Location = new System.Drawing.Point(203, 188);
-            this.txtTongThanhTien.Name = "txtTongThanhTien";
-            this.txtTongThanhTien.Size = new System.Drawing.Size(280, 35);
-            this.txtTongThanhTien.TabIndex = 1;
-            // 
-            // cbPhiTraTre
-            // 
-            this.cbPhiTraTre.AutoSize = true;
-            this.cbPhiTraTre.Location = new System.Drawing.Point(203, 121);
-            this.cbPhiTraTre.Name = "cbPhiTraTre";
-            this.cbPhiTraTre.Size = new System.Drawing.Size(247, 31);
-            this.cbPhiTraTre.TabIndex = 2;
-            this.cbPhiTraTre.Text = "Thanh toán phí trả trễ";
-            this.cbPhiTraTre.UseVisualStyleBackColor = true;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(83, 113);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(114, 27);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Phí trả trễ:";
             // 
             // frmThueDia
             // 
@@ -319,6 +329,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmThueDia";
             this.Text = "frmThueDia";
+            this.Load += new System.EventHandler(this.frmThueDia_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -346,16 +357,16 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtMaKhachHang;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ListView lvDiaThue;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.ColumnHeader MaDia;
-        private System.Windows.Forms.ColumnHeader TieuDe;
         private System.Windows.Forms.TextBox txtPhiTraTre;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.CheckBox cbPhiTraTre;
         private System.Windows.Forms.TextBox txtTongThanhTien;
+        private System.Windows.Forms.ColumnHeader maDia;
+        private System.Windows.Forms.ColumnHeader tieuDe;
+        private System.Windows.Forms.Button btnXoaItem;
     }
 }

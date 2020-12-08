@@ -24,11 +24,11 @@ namespace AppThueDia
 
         }
         BaoCaoTieuDeBUS baoCaoTieuDeBUS;
-        List<eBaoCaoTieuDe> lsTieuDeBC;
+        List<eABaoCaoTieuDe> lsTieuDeBC;
         private void frmBaoCaoTieuDe_Load(object sender, EventArgs e)
         {
             baoCaoTieuDeBUS = new BaoCaoTieuDeBUS();
-            lsTieuDeBC = new List<eBaoCaoTieuDe>();
+            lsTieuDeBC = new List<eABaoCaoTieuDe>();
             lsTieuDeBC = baoCaoTieuDeBUS.getBaoCao();
             dgvBaoCao.DataSource = lsTieuDeBC;
 

@@ -15,13 +15,13 @@ namespace Data
             db = new dbQuanLyDiaDataContext();
         }
 
-        public List<eBaoCaoTieuDe> getBaoCao()
+        public List<eABaoCaoTieuDe> getBaoCao()
         {
-            List<eBaoCaoTieuDe> ls = new List<eBaoCaoTieuDe>();
+            List<eABaoCaoTieuDe> ls = new List<eABaoCaoTieuDe>();
 
             var ds = from td in db.TieuDes
                      join disk in db.Disk_Games on td.MaTieuDe.Trim() equals disk.MaTieuDe.Trim()
-                     select new eBaoCaoTieuDe
+                     select new eABaoCaoTieuDe
                      {
                          MaDia = disk.MaDia,
                          TrangThai = disk.TrangThai,
@@ -38,8 +38,8 @@ namespace Data
             foreach (var td in group)
             {
                 int onhold = 0, onshelf = 0, rented=0, deleted =0, count=0;
-                eBaoCaoTieuDe temp = new eBaoCaoTieuDe();
-                foreach (eBaoCaoTieuDe obj in td)
+                eABaoCaoTieuDe temp = new eABaoCaoTieuDe();
+                foreach (eABaoCaoTieuDe obj in td)
                 {
                     if (obj.Deleted)
                     {

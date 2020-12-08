@@ -15,7 +15,7 @@ namespace Data
         {
             db = new dbQuanLyDiaDataContext();
         }
-        public bool themTieuDe(eTieuDe tieuDe)
+        public bool themTieuDe(eATieuDe tieuDe)
         {
             TieuDe td = new TieuDe();
             td.TieuDe1 = tieuDe.TieuDe;
@@ -29,13 +29,13 @@ namespace Data
             return true;
         }
 
-        public List<eTieuDe> getAllTieuDe()
+        public List<eATieuDe> getAllTieuDe()
         {
-            List<eTieuDe> ls = new List<eTieuDe>();
+            List<eATieuDe> ls = new List<eATieuDe>();
             IEnumerable<TieuDe> tieude = db.TieuDes.Where(kh => kh.Deleted == false);
             foreach (TieuDe td in tieude)
             {
-                eTieuDe eTD = new eTieuDe();
+                eATieuDe eTD = new eATieuDe();
                 eTD.MaTieuDe = td.MaTieuDe;
                 eTD.TieuDe = td.TieuDe1;
                 eTD.SoLuongDia = td.SoLuongDia;
@@ -82,13 +82,13 @@ namespace Data
             return true;
         }
 
-        public eTieuDe getTieuDeTheoLoai(string loai)
+        public eATieuDe getTieuDeTheoLoai(string loai)
         {
             
            var tieude = db.TieuDes.Where(td => td.Deleted == false && td.LoaiDia==loai).FirstOrDefault();
             if (tieude != null)
             {
-                eTieuDe eTd = new eTieuDe();
+                eATieuDe eTd = new eATieuDe();
                 eTd.GiaThue =(float)tieude.GiaThue;
                 eTd.LoaiDia = tieude.LoaiDia;
                 eTd.MaTieuDe = tieude.MaTieuDe;

@@ -17,14 +17,14 @@ namespace BUS
 
         }
 
-        public List<eDonHang> getDonHangCuaKhachHang(string maKh)
+        public List<eADonHang> getDonHangCuaKhachHang(string maKh)
         {
             return donHangDAL.getDonHangCuaKhachHang(maKh);
         }
 
-        public bool huyPhiTraTre(string madh)
+        public bool huyPhiTraTre(string madh,string madia)
         {
-            return donHangDAL.huyPhiTraTre(madh);
+            return donHangDAL.huyPhiTraTre(madh, madia);
         }
     }
 

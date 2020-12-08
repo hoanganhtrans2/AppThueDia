@@ -1,8 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QuanLyThueDia" Class="dbQuanLyDiaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-5N3IA3V;Initial Catalog=QuanLyThueDia;Integrated Security=True" SettingsObjectName="Data.Properties.Settings" SettingsPropertyName="QuanLyThueDiaConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DBQuanLyDia" Class="dbQuanLyDiaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-5N3IA3V;Initial Catalog=DBQuanLyDia;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="Data.Properties.Settings" SettingsPropertyName="DBQuanLyDiaConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ChiTietDonHang" Member="ChiTietDonHangs">
     <Type Name="ChiTietDonHang">
-      <Column Name="SoLuongDiaThue" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="PhiThue" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="MaDonHang" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="MaDia" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -10,7 +9,6 @@
       <Column Name="PhiTraTre" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="NgayTraDia" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="HanTraDia" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="NgayThue" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Association Name="Disk_Game_ChiTietDonHang" Member="Disk_Game" ThisKey="MaDia" OtherKey="MaDia" Type="Disk_Game" IsForeignKey="true" />
       <Association Name="DonHang_ChiTietDonHang" Member="DonHang" ThisKey="MaDonHang" OtherKey="MaDonHang" Type="DonHang" IsForeignKey="true" />
     </Type>
@@ -18,7 +16,6 @@
   <Table Name="dbo.Disk_Game" Member="Disk_Games">
     <Type Name="Disk_Game">
       <Column Name="MaDia" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="ChoThue" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="TrangThai" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="Deleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="MaTieuDe" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
@@ -29,11 +26,7 @@
   <Table Name="dbo.DonHang" Member="DonHangs">
     <Type Name="DonHang">
       <Column Name="MaDonHang" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="HanTraDia" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="NgayTraDia" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="NgayThue" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="PhiTraTre" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="ThanhToanPhiNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NgayThue" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="MaKhachHang" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
       <Association Name="DonHang_ChiTietDonHang" Member="ChiTietDonHangs" ThisKey="MaDonHang" OtherKey="MaDonHang" Type="ChiTietDonHang" />
       <Association Name="KhachHang_DonHang" Member="KhachHang" ThisKey="MaKhachHang" OtherKey="MaKhachHang" Type="KhachHang" IsForeignKey="true" />
@@ -61,13 +54,18 @@
       <Association Name="KhachHang_KH_DatTruoc_TieuDe" Member="KH_DatTruoc_TieuDes" ThisKey="MaKhachHang" OtherKey="MaKhachHang" Type="KH_DatTruoc_TieuDe" />
     </Type>
   </Table>
+  <Table Name="dbo.TaiKhoan" Member="TaiKhoans">
+    <Type Name="TaiKhoan">
+      <Column Name="TaiKhoan" Member="TaiKhoan1" Type="System.String" DbType="NChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MatKhau" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.TieuDe" Member="TieuDes">
     <Type Name="TieuDe">
       <Column Name="MaTieuDe" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TieuDe" Member="TieuDe1" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="SoLuongDia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="GiaThue" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="ChoThue" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="SoNgayDuocThue" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="LoaiDia" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
       <Column Name="Deleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />

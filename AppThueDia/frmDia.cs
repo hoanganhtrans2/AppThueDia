@@ -20,7 +20,7 @@ namespace AppThueDia
             InitializeComponent();
         }
         DiskGameBUS diskGameBUS;
-        List<eTieuDeGameDVD> lsTieuDeGameDVD;
+        List<eATieuDeGameDVD> lsTieuDeGameDVD;
         BindingSource bsDia;
         List<string> loaiDia;
         List<string> trangThaiDia;
@@ -28,7 +28,7 @@ namespace AppThueDia
         {
             diskGameBUS = new DiskGameBUS();
             bsDia = new BindingSource();
-            lsTieuDeGameDVD = new List<eTieuDeGameDVD>();
+            lsTieuDeGameDVD = new List<eATieuDeGameDVD>();
             loaiDia = new List<string>() { "DVD", "MOVIE" };
             trangThaiDia = new List<string>() { "onshelf", "rented", "onhold" };
             cbLoaiDia.DataSource = loaiDia;
@@ -49,7 +49,7 @@ namespace AppThueDia
             dgvDia.Columns["MaTieuDe"].Visible = false;
 
         }
-        public void capNhatThongTinVaoTextBox(eTieuDeGameDVD tieuDeGameDVD)
+        public void capNhatThongTinVaoTextBox(eATieuDeGameDVD tieuDeGameDVD)
         {
             txtMaDia.Text = tieuDeGameDVD.MaDia;
             txtGiaThue.Text = tieuDeGameDVD.GiaThue.ToString();
@@ -59,12 +59,12 @@ namespace AppThueDia
             cbTrangThai.Text = tieuDeGameDVD.TrangThai;
         }
 
-        eTieuDeGameDVD currentTieuDeGameDVD;
+        eATieuDeGameDVD currentTieuDeGameDVD;
         private void dgvDia_Click(object sender, EventArgs e)
         {
             try
             {
-                eTieuDeGameDVD tieuDe = (eTieuDeGameDVD)bsDia.Current;
+                eATieuDeGameDVD tieuDe = (eATieuDeGameDVD)bsDia.Current;
                 currentTieuDeGameDVD = tieuDe;
                 capNhatThongTinVaoTextBox(tieuDe);
             }
@@ -88,7 +88,7 @@ namespace AppThueDia
         {
             if (e.ColumnIndex == 8)
             {
-                eTieuDeGameDVD tieuDe = currentTieuDeGameDVD;
+                eATieuDeGameDVD tieuDe = currentTieuDeGameDVD;
               
                     DialogResult dlgHoiXoa;
                     dlgHoiXoa = MessageBox.Show("Xác nhận xóa mã đĩa "+ tieuDe.MaDia+ "tiêu đề đĩa " + tieuDe.TieuDe, "Hỏi xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);

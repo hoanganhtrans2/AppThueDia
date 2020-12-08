@@ -10,10 +10,10 @@ namespace BUS
 {
    public class KhachHangBUS
     {
-        DALKhachHang dAL;
+        KhachHangDAL dAL;
         public KhachHangBUS()
         {
-            dAL = new DALKhachHang();
+            dAL = new KhachHangDAL();
         }
         public List<eKhachHang> getAllKhachHang()
         {

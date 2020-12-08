@@ -19,13 +19,13 @@ namespace AppThueDia
             InitializeComponent();
         }
         TieuDeBUS tieuDeBUS;
-        eTieuDe tdMOVIE;
-        eTieuDe tdGAME;
+        eATieuDe tdMOVIE;
+        eATieuDe tdGAME;
         private void frmCapNhatThongTinThue_Load(object sender, EventArgs e)
         {
             tieuDeBUS = new TieuDeBUS();
-            tdMOVIE = new eTieuDe();
-            tdGAME = new eTieuDe();
+            tdMOVIE = new eATieuDe();
+            tdGAME = new eATieuDe();
             List<string> loaiDia = new List<string>() { "GAME", "MOVIE" };
             cboLoaiDiaThue.DataSource = loaiDia;
             LoadData();
@@ -49,7 +49,7 @@ namespace AppThueDia
 
         private void cboLoaiDiaThue_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            eTieuDe temp = new eTieuDe();
+            eATieuDe temp = new eATieuDe();
             switch (cboLoaiDiaThue.SelectedIndex)
             {
 
@@ -78,7 +78,7 @@ namespace AppThueDia
                 {
                     MessageBox.Show("Cập nhật thành công");
                     LoadData();
-                    eTieuDe temp = tieuDeBUS.getTieuDeTheoLoai("GAME");
+                    eATieuDe temp = tieuDeBUS.getTieuDeTheoLoai("GAME");
                     txtGiaThue.Text = temp.GiaThue.ToString();
                     mudSoNgayDuocThue.Value = tdGAME.SoNgayDuocThue;
                 }
@@ -93,9 +93,14 @@ namespace AppThueDia
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            eTieuDe temp = tieuDeBUS.getTieuDeTheoLoai("GAME");
+            eATieuDe temp = tieuDeBUS.getTieuDeTheoLoai("GAME");
             txtGiaThue.Text = temp.GiaThue.ToString();
             mudSoNgayDuocThue.Value = tdGAME.SoNgayDuocThue;
+        }
+
+        private void frmCapNhatThongTinThue_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
         }
     }
 }

@@ -42,16 +42,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="eBaoCaoTieuDe.cs" />
-    <Compile Include="eChiTietDonHang.cs" />
-    <Compile Include="eChiTietDonHangTieuDe.cs" />
+    <Compile Include="DTO_ChiTietDonHang.cs" />
+    <Compile Include="DTO_DiskGame.cs" />
+    <Compile Include="DTO_DonHang.cs" />
+    <Compile Include="DTO_KhachHang.cs" />
+    <Compile Include="DTO_KH_DatTruoc_TieuDe.cs" />
+    <Compile Include="DTO_TaiKhoan.cs" />
+    <Compile Include="DTO_TieuDe.cs" />
+    <Compile Include="eABaoCaoTieuDe.cs" />
+    <Compile Include="eAChiTietDonHang.cs" />
     <Compile Include="eDiskGame.cs" />
-    <Compile Include="eDonHang.cs" />
-    <Compile Include="eHuyKhoanNo.cs" />
+    <Compile Include="eADonHang.cs" />
+    <Compile Include="eAHuyKhoanNo.cs" />
     <Compile Include="eKhachHang.cs" />
     <Compile Include="eKHDatTruocTieuDe.cs" />
-    <Compile Include="eTieuDe.cs" />
-    <Compile Include="eTieuDeGameDVD.cs" />
+    <Compile Include="eATieuDe.cs" />
+    <Compile Include="eATieuDeGameDVD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

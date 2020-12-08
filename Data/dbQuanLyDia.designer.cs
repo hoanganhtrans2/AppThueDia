@@ -22,7 +22,7 @@ namespace Data
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="QuanLyThueDia")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="DBQuanLyDia")]
 	public partial class dbQuanLyDiaDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -45,13 +45,16 @@ namespace Data
     partial void InsertKhachHang(KhachHang instance);
     partial void UpdateKhachHang(KhachHang instance);
     partial void DeleteKhachHang(KhachHang instance);
+    partial void InsertTaiKhoan(TaiKhoan instance);
+    partial void UpdateTaiKhoan(TaiKhoan instance);
+    partial void DeleteTaiKhoan(TaiKhoan instance);
     partial void InsertTieuDe(TieuDe instance);
     partial void UpdateTieuDe(TieuDe instance);
     partial void DeleteTieuDe(TieuDe instance);
     #endregion
 		
 		public dbQuanLyDiaDataContext() : 
-				base(global::Data.Properties.Settings.Default.QuanLyThueDiaConnectionString, mappingSource)
+				base(global::Data.Properties.Settings.Default.DBQuanLyDiaConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -120,6 +123,14 @@ namespace Data
 			}
 		}
 		
+		public System.Data.Linq.Table<TaiKhoan> TaiKhoans
+		{
+			get
+			{
+				return this.GetTable<TaiKhoan>();
+			}
+		}
+		
 		public System.Data.Linq.Table<TieuDe> TieuDes
 		{
 			get
@@ -135,8 +146,6 @@ namespace Data
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _SoLuongDiaThue;
-		
 		private double _PhiThue;
 		
 		private string _MaDonHang;
@@ -151,8 +160,6 @@ namespace Data
 		
 		private System.Nullable<System.DateTime> _HanTraDia;
 		
-		private System.Nullable<System.DateTime> _NgayThue;
-		
 		private EntityRef<Disk_Game> _Disk_Game;
 		
 		private EntityRef<DonHang> _DonHang;
@@ -161,8 +168,6 @@ namespace Data
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnSoLuongDiaThueChanging(int value);
-    partial void OnSoLuongDiaThueChanged();
     partial void OnPhiThueChanging(double value);
     partial void OnPhiThueChanged();
     partial void OnMaDonHangChanging(string value);
@@ -177,8 +182,6 @@ namespace Data
     partial void OnNgayTraDiaChanged();
     partial void OnHanTraDiaChanging(System.Nullable<System.DateTime> value);
     partial void OnHanTraDiaChanged();
-    partial void OnNgayThueChanging(System.Nullable<System.DateTime> value);
-    partial void OnNgayThueChanged();
     #endregion
 		
 		public ChiTietDonHang()
@@ -186,26 +189,6 @@ namespace Data
 			this._Disk_Game = default(EntityRef<Disk_Game>);
 			this._DonHang = default(EntityRef<DonHang>);
 			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoLuongDiaThue", DbType="Int NOT NULL")]
-		public int SoLuongDiaThue
-		{
-			get
-			{
-				return this._SoLuongDiaThue;
-			}
-			set
-			{
-				if ((this._SoLuongDiaThue != value))
-				{
-					this.OnSoLuongDiaThueChanging(value);
-					this.SendPropertyChanging();
-					this._SoLuongDiaThue = value;
-					this.SendPropertyChanged("SoLuongDiaThue");
-					this.OnSoLuongDiaThueChanged();
-				}
-			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhiThue", DbType="Float NOT NULL")]
@@ -356,26 +339,6 @@ namespace Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayThue", DbType="Date")]
-		public System.Nullable<System.DateTime> NgayThue
-		{
-			get
-			{
-				return this._NgayThue;
-			}
-			set
-			{
-				if ((this._NgayThue != value))
-				{
-					this.OnNgayThueChanging(value);
-					this.SendPropertyChanging();
-					this._NgayThue = value;
-					this.SendPropertyChanged("NgayThue");
-					this.OnNgayThueChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Disk_Game_ChiTietDonHang", Storage="_Disk_Game", ThisKey="MaDia", OtherKey="MaDia", IsForeignKey=true)]
 		public Disk_Game Disk_Game
 		{
@@ -473,8 +436,6 @@ namespace Data
 		
 		private string _MaDia;
 		
-		private bool _ChoThue;
-		
 		private string _TrangThai;
 		
 		private System.Nullable<bool> _Deleted;
@@ -491,8 +452,6 @@ namespace Data
     partial void OnCreated();
     partial void OnMaDiaChanging(string value);
     partial void OnMaDiaChanged();
-    partial void OnChoThueChanging(bool value);
-    partial void OnChoThueChanged();
     partial void OnTrangThaiChanging(string value);
     partial void OnTrangThaiChanged();
     partial void OnDeletedChanging(System.Nullable<bool> value);
@@ -524,26 +483,6 @@ namespace Data
 					this._MaDia = value;
 					this.SendPropertyChanged("MaDia");
 					this.OnMaDiaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChoThue", DbType="Bit NOT NULL")]
-		public bool ChoThue
-		{
-			get
-			{
-				return this._ChoThue;
-			}
-			set
-			{
-				if ((this._ChoThue != value))
-				{
-					this.OnChoThueChanging(value);
-					this.SendPropertyChanging();
-					this._ChoThue = value;
-					this.SendPropertyChanged("ChoThue");
-					this.OnChoThueChanged();
 				}
 			}
 		}
@@ -700,15 +639,7 @@ namespace Data
 		
 		private string _MaDonHang;
 		
-		private System.DateTime _HanTraDia;
-		
-		private System.DateTime _NgayTraDia;
-		
-		private System.DateTime _NgayThue;
-		
-		private double _PhiTraTre;
-		
-		private string _ThanhToanPhiNo;
+		private System.Nullable<System.DateTime> _NgayThue;
 		
 		private string _MaKhachHang;
 		
@@ -722,16 +653,8 @@ namespace Data
     partial void OnCreated();
     partial void OnMaDonHangChanging(string value);
     partial void OnMaDonHangChanged();
-    partial void OnHanTraDiaChanging(System.DateTime value);
-    partial void OnHanTraDiaChanged();
-    partial void OnNgayTraDiaChanging(System.DateTime value);
-    partial void OnNgayTraDiaChanged();
-    partial void OnNgayThueChanging(System.DateTime value);
+    partial void OnNgayThueChanging(System.Nullable<System.DateTime> value);
     partial void OnNgayThueChanged();
-    partial void OnPhiTraTreChanging(double value);
-    partial void OnPhiTraTreChanged();
-    partial void OnThanhToanPhiNoChanging(string value);
-    partial void OnThanhToanPhiNoChanged();
     partial void OnMaKhachHangChanging(string value);
     partial void OnMaKhachHangChanged();
     #endregion
@@ -763,48 +686,8 @@ namespace Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HanTraDia", DbType="DateTime NOT NULL")]
-		public System.DateTime HanTraDia
-		{
-			get
-			{
-				return this._HanTraDia;
-			}
-			set
-			{
-				if ((this._HanTraDia != value))
-				{
-					this.OnHanTraDiaChanging(value);
-					this.SendPropertyChanging();
-					this._HanTraDia = value;
-					this.SendPropertyChanged("HanTraDia");
-					this.OnHanTraDiaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayTraDia", DbType="DateTime NOT NULL")]
-		public System.DateTime NgayTraDia
-		{
-			get
-			{
-				return this._NgayTraDia;
-			}
-			set
-			{
-				if ((this._NgayTraDia != value))
-				{
-					this.OnNgayTraDiaChanging(value);
-					this.SendPropertyChanging();
-					this._NgayTraDia = value;
-					this.SendPropertyChanged("NgayTraDia");
-					this.OnNgayTraDiaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayThue", DbType="DateTime NOT NULL")]
-		public System.DateTime NgayThue
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayThue", DbType="DateTime")]
+		public System.Nullable<System.DateTime> NgayThue
 		{
 			get
 			{
@@ -819,46 +702,6 @@ namespace Data
 					this._NgayThue = value;
 					this.SendPropertyChanged("NgayThue");
 					this.OnNgayThueChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhiTraTre", DbType="Float NOT NULL")]
-		public double PhiTraTre
-		{
-			get
-			{
-				return this._PhiTraTre;
-			}
-			set
-			{
-				if ((this._PhiTraTre != value))
-				{
-					this.OnPhiTraTreChanging(value);
-					this.SendPropertyChanging();
-					this._PhiTraTre = value;
-					this.SendPropertyChanged("PhiTraTre");
-					this.OnPhiTraTreChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ThanhToanPhiNo", DbType="NVarChar(50)")]
-		public string ThanhToanPhiNo
-		{
-			get
-			{
-				return this._ThanhToanPhiNo;
-			}
-			set
-			{
-				if ((this._ThanhToanPhiNo != value))
-				{
-					this.OnThanhToanPhiNoChanging(value);
-					this.SendPropertyChanging();
-					this._ThanhToanPhiNo = value;
-					this.SendPropertyChanged("ThanhToanPhiNo");
-					this.OnThanhToanPhiNoChanged();
 				}
 			}
 		}
@@ -1421,6 +1264,92 @@ namespace Data
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TaiKhoan")]
+	public partial class TaiKhoan : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _TaiKhoan1;
+		
+		private string _MatKhau;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnTaiKhoan1Changing(string value);
+    partial void OnTaiKhoan1Changed();
+    partial void OnMatKhauChanging(string value);
+    partial void OnMatKhauChanged();
+    #endregion
+		
+		public TaiKhoan()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="TaiKhoan", Storage="_TaiKhoan1", DbType="NChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string TaiKhoan1
+		{
+			get
+			{
+				return this._TaiKhoan1;
+			}
+			set
+			{
+				if ((this._TaiKhoan1 != value))
+				{
+					this.OnTaiKhoan1Changing(value);
+					this.SendPropertyChanging();
+					this._TaiKhoan1 = value;
+					this.SendPropertyChanged("TaiKhoan1");
+					this.OnTaiKhoan1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MatKhau", DbType="NChar(20) NOT NULL", CanBeNull=false)]
+		public string MatKhau
+		{
+			get
+			{
+				return this._MatKhau;
+			}
+			set
+			{
+				if ((this._MatKhau != value))
+				{
+					this.OnMatKhauChanging(value);
+					this.SendPropertyChanging();
+					this._MatKhau = value;
+					this.SendPropertyChanged("MatKhau");
+					this.OnMatKhauChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TieuDe")]
 	public partial class TieuDe : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1434,8 +1363,6 @@ namespace Data
 		private int _SoLuongDia;
 		
 		private double _GiaThue;
-		
-		private bool _ChoThue;
 		
 		private int _SoNgayDuocThue;
 		
@@ -1459,8 +1386,6 @@ namespace Data
     partial void OnSoLuongDiaChanged();
     partial void OnGiaThueChanging(double value);
     partial void OnGiaThueChanged();
-    partial void OnChoThueChanging(bool value);
-    partial void OnChoThueChanged();
     partial void OnSoNgayDuocThueChanging(int value);
     partial void OnSoNgayDuocThueChanged();
     partial void OnLoaiDiaChanging(string value);
@@ -1552,26 +1477,6 @@ namespace Data
 					this._GiaThue = value;
 					this.SendPropertyChanged("GiaThue");
 					this.OnGiaThueChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChoThue", DbType="Bit NOT NULL")]
-		public bool ChoThue
-		{
-			get
-			{
-				return this._ChoThue;
-			}
-			set
-			{
-				if ((this._ChoThue != value))
-				{
-					this.OnChoThueChanging(value);
-					this.SendPropertyChanging();
-					this._ChoThue = value;
-					this.SendPropertyChanged("ChoThue");
-					this.OnChoThueChanged();
 				}
 			}
 		}

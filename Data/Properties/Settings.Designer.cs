@@ -33,5 +33,16 @@ namespace Data.Properties {
                 return ((string)(this["QuanLyThueDiaConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-5N3IA3V;Initial Catalog=DBQuanLyDia;Integrated Security=True;" +
+            "Connect Timeout=30;Encrypt=False;TrustServerCertificate=False")]
+        public string DBQuanLyDiaConnectionString {
+            get {
+                return ((string)(this["DBQuanLyDiaConnectionString"]));
+            }
+        }
     }
 }

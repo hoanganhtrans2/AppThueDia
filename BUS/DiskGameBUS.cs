@@ -11,13 +11,13 @@ namespace BUS
   public  class DiskGameBUS
     {
 
-        DALDiskGame diskGameDVDDAL;
+        DiskGameDAL diskGameDVDDAL;
         public DiskGameBUS()
         {
-            diskGameDVDDAL = new DALDiskGame();
+            diskGameDVDDAL = new DiskGameDAL();
         }
 
-        public List<eTieuDeGameDVD> getAllDiskGameDVD()
+        public List<eATieuDeGameDVD> getAllDiskGameDVD()
         {
             return diskGameDVDDAL.getAllDiskGameDVD();
         }
@@ -26,12 +26,12 @@ namespace BUS
         {
             return diskGameDVDDAL.deleteDia(id);
         }
-        public List<eHuyKhoanNo> getThongTinDiaKhachHangChuaTra(string makh)
+        public List<eAHuyKhoanNo> getThongTinDiaKhachHangChuaTra(string makh)
         {
             return diskGameDVDDAL.getThongTinDiaKhachHangChuaTra(makh);
         }
 
-        public List<eHuyKhoanNo> getThongTinKhachHangDangNo(string makh)
+        public List<eAHuyKhoanNo> getThongTinKhachHangDangNo(string makh)
         {
             return diskGameDVDDAL.getThongTinKhachHangDangNo(makh);
         }

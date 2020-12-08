@@ -16,7 +16,7 @@ namespace BUS
             baoCaoTieuDeDAL = new BaoCaoTieuDeDAL();
         }
 
-        public List<eBaoCaoTieuDe> getBaoCao()
+        public List<eABaoCaoTieuDe> getBaoCao()
         {
             return baoCaoTieuDeDAL.getBaoCao();
         }

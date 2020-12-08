@@ -130,7 +130,7 @@ namespace AppThueDia
         {
             frmCapNhatThongTinThue f = new frmCapNhatThongTinThue();
             f.ShowDialog();
-            this.Hide();
+           
         }
     }
 }

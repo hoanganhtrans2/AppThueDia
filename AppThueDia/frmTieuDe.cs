@@ -20,13 +20,13 @@ namespace AppThueDia
         }
         TieuDeBUS tieuDeBUS;
         BindingSource bsTieuDe;
-        List<eTieuDe> lsTieuDe;
+        List<eATieuDe> lsTieuDe;
         List<string> loaiDia;
         private void frmTieuDe_Load(object sender, EventArgs e)
         {
             tieuDeBUS = new TieuDeBUS();
             bsTieuDe = new BindingSource();
-            lsTieuDe = new List<eTieuDe>();
+            lsTieuDe = new List<eATieuDe>();
             loaiDia = new List<string>() { "GAME", "MOVIE" };
             cbLoaiDia.DataSource = loaiDia;
             bsTieuDe.DataSource = tieuDeBUS.getAllTieuDe();
@@ -43,7 +43,7 @@ namespace AppThueDia
 
                 if (kiemTraThongTinNhap())
                 {
-                    eTieuDe tieuDe = taoTieuDe();
+                    eATieuDe tieuDe = taoTieuDe();
                     if (tieuDeBUS.themTieuDe(tieuDe))
                     {
                         voHieuNhapThongTin();
@@ -80,7 +80,7 @@ namespace AppThueDia
         }
         public bool kiemTraThongTinNhap()
         {
-            eTieuDe tieuDe = taoTieuDe();
+            eATieuDe tieuDe = taoTieuDe();
             if (tieuDe!=null&&tieuDe.TieuDe.Length>0) return true;
             return false;
         }
@@ -88,7 +88,7 @@ namespace AppThueDia
         public void choPhepNhapThongTin()
         {
             
-            eTieuDe temp = tieuDeBUS.getTieuDeTheoLoai(cbLoaiDia.Text);
+            eATieuDe temp = tieuDeBUS.getTieuDeTheoLoai(cbLoaiDia.Text);
             txtGiaThue.Text = temp.GiaThue.ToString();
             txtSoNgay.Text = temp.SoNgayDuocThue.ToString();
             txtTieuDe.Enabled = true;
@@ -118,9 +118,9 @@ namespace AppThueDia
             cbLoaiDia.DataSource = loaiDia;
         }
 
-        public eTieuDe taoTieuDe()
+        public eATieuDe taoTieuDe()
         {
-            eTieuDe etieuDe = new eTieuDe();
+            eATieuDe etieuDe = new eATieuDe();
             try
             {
                 etieuDe.TieuDe = txtTieuDe.Text;
@@ -136,7 +136,7 @@ namespace AppThueDia
             return etieuDe;
         }
 
-        public void capNhatThongTinVaoTextBox(eTieuDe eTieuDe)
+        public void capNhatThongTinVaoTextBox(eATieuDe eTieuDe)
         {
             txtGiaThue.Text = eTieuDe.GiaThue.ToString();
             txtSoLuong.Text = eTieuDe.SoLuongDia.ToString();
@@ -149,12 +149,12 @@ namespace AppThueDia
         {
 
         }
-        eTieuDe currenTieuDe;
+        eATieuDe currenTieuDe;
         private void dgvDSDia_Click(object sender, EventArgs e)
         {
             try
             {
-                eTieuDe tieuDe = (eTieuDe)bsTieuDe.Current;
+                eATieuDe tieuDe = (eATieuDe)bsTieuDe.Current;
                 currenTieuDe = tieuDe;
                 capNhatThongTinVaoTextBox(tieuDe);
             }
@@ -177,7 +177,7 @@ namespace AppThueDia
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            eTieuDe tieuDe = currenTieuDe;
+            eATieuDe tieuDe = currenTieuDe;
             if (tieuDe.MaTieuDe.Length > 0)
             {
                 DialogResult dlgHoiXoa;
@@ -202,7 +202,7 @@ namespace AppThueDia
            
             if (e.ColumnIndex==6)
             {
-                eTieuDe tieuDe = currenTieuDe;
+                eATieuDe tieuDe = currenTieuDe;
                 DialogResult dlgHoiXoa;
                 dlgHoiXoa = MessageBox.Show("Xác nhận xóa tiêu đề " + tieuDe.TieuDe, "Hỏi xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                 if (dlgHoiXoa == DialogResult.Yes)
@@ -228,7 +228,7 @@ namespace AppThueDia
 
         private void cbLoaiDia_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            eTieuDe temp = new eTieuDe();
+            eATieuDe temp = new eATieuDe();
             switch (cbLoaiDia.SelectedIndex)
             {
 

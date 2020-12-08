@@ -17,16 +17,16 @@ namespace Data
             db = new dbQuanLyDiaDataContext();
         }
 
-        public List<eHuyKhoanNo> getChiTietDonHangCuaKhachHang(string makh)
+        public List<eAHuyKhoanNo> getChiTietDonHangCuaKhachHang(string makh)
         {
-            List<eHuyKhoanNo> ls = new List<eHuyKhoanNo>();
+            List<eAHuyKhoanNo> ls = new List<eAHuyKhoanNo>();
 
             var ds = from td in db.TieuDes
                      join disk in db.Disk_Games on td.MaTieuDe.Trim() equals disk.MaTieuDe.Trim()
                      join ctdh in db.ChiTietDonHangs on disk.MaDia.Trim() equals ctdh.MaDia.Trim()
                      join donhang in db.DonHangs on  ctdh.MaDonHang.Trim() equals donhang.MaDonHang.Trim()
                      where donhang.MaKhachHang.Trim() == makh.Trim()
-                     select new eHuyKhoanNo
+                     select new eAHuyKhoanNo
                      {
                          MaDia = disk.MaDia,
                         MaTieuDe = td.MaTieuDe,
@@ -37,12 +37,12 @@ namespace Data
                         MaDonHang = donhang.MaDonHang,
                         HanTraDia =ctdh.HanTraDia,
                          NgayTraDia = ctdh.NgayTraDia,
-                         NgayThue = ctdh.NgayThue,
+                         NgayThue = donhang.NgayThue,
                          PhiTraTre = (float)ctdh.PhiTraTre,
                          ThanhToanPhiNo = ctdh.ThanhToanPhiNo,
                          MaKhachHang = donhang.MaKhachHang
                      };
-            foreach (eHuyKhoanNo item in ds)
+            foreach (eAHuyKhoanNo item in ds)
             {
                 if (item.ThanhToanPhiNo==null)
                     item.DisplayThanhToanPhiNo =  "Chưa Thanh Toán";
@@ -56,7 +56,7 @@ namespace Data
             return ls;
         }
 
-        public bool huyPhiTraTre(eHuyKhoanNo huyKhoanNo)
+        public bool huyPhiTraTre(eAHuyKhoanNo huyKhoanNo)
         {
             
             var temp = db.ChiTietDonHangs.Where(dh => dh.MaDonHang.Trim() == huyKhoanNo.MaDonHang.Trim() 

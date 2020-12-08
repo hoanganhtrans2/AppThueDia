@@ -108,15 +108,15 @@ namespace AppThueDia
                 eKhachHang khachHang = khachHangBUS.getKhachHangById(makh);
                 LoadKhachHangToLable(khachHang);
                 LoadKhachHangToLable(khachHang);    
-                List<eHuyKhoanNo> ls = diskGameBUS.getThongTinDiaKhachHangChuaTra(khachHang.MaKhachHang);
+                List<eAHuyKhoanNo> ls = diskGameBUS.getThongTinDiaKhachHangChuaTra(khachHang.MaKhachHang);
                 dgvQuaHan.DataSource = ls;
                 lblSoDia.Text = ls.Count.ToString();
                 CustomGirdViewQH();
 
-                List<eHuyKhoanNo> lsKhNo = diskGameBUS.getThongTinKhachHangDangNo(khachHang.MaKhachHang);
+                List<eAHuyKhoanNo> lsKhNo = diskGameBUS.getThongTinKhachHangDangNo(khachHang.MaKhachHang);
                 dgvThongTinTreHan.DataSource = lsKhNo;
                 float tong = 0;
-                foreach (eHuyKhoanNo obj in lsKhNo)
+                foreach (eAHuyKhoanNo obj in lsKhNo)
                     tong += (float)obj.PhiTraTre;
                 lblChiPhiNo.Text = tong.ToString() + "đ";
                 CustomGirdViewTH();

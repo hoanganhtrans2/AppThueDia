@@ -15,11 +15,11 @@ namespace BUS
         {
             deDAL = new TieuDeDAL();
         }
-        public bool themTieuDe(eTieuDe tieuDe)
+        public bool themTieuDe(eATieuDe tieuDe)
         {
             return deDAL.themTieuDe(tieuDe);
         }
-        public List<eTieuDe> getAllTieuDe()
+        public List<eATieuDe> getAllTieuDe()
         {
             return deDAL.getAllTieuDe();
         }
@@ -28,7 +28,7 @@ namespace BUS
             return deDAL.deleteTieuDe(id);
         }
 
-        public eTieuDe getTieuDeTheoLoai(string loai)
+        public eATieuDe getTieuDeTheoLoai(string loai)
         {
             return deDAL.getTieuDeTheoLoai(loai);
         }

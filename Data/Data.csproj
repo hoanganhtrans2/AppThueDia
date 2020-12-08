@@ -45,10 +45,15 @@
   <ItemGroup>
     <Compile Include="BaoCaoTieuDeDAL.cs" />
     <Compile Include="ChiTietDonHangDAL.cs" />
-    <Compile Include="DALKhachHang.cs" />
-    <Compile Include="DALChiTietDonHang.cs" />
-    <Compile Include="DALDiskGame.cs" />
-    <Compile Include="DALKHDatTruocTieuDe.cs" />
+    <Compile Include="DAL_ChiTietDonHang.cs" />
+    <Compile Include="DAL_DatTruoc.cs" />
+    <Compile Include="DAL_Disk.cs" />
+    <Compile Include="DAL_DonHang.cs" />
+    <Compile Include="DAL_KhachHang.cs" />
+    <Compile Include="DAL_TaiKhoan.cs" />
+    <Compile Include="DAL_TieuDe.cs" />
+    <Compile Include="KhachHangDAL.cs" />
+    <Compile Include="DiskGameDAL.cs" />
     <Compile Include="dbQuanLyDia.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

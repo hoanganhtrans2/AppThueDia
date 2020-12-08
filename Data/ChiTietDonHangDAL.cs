@@ -15,15 +15,15 @@ namespace Data
         {
             db = new dbQuanLyDiaDataContext();
         }
-        public List<eTieuDeGameDVD> getChiTietDonHang(string madh)
+        public List<eATieuDeGameDVD> getChiTietDonHang(string madh)
         {
-            List<eTieuDeGameDVD> ls = new List<eTieuDeGameDVD>();
+            List<eATieuDeGameDVD> ls = new List<eATieuDeGameDVD>();
 
             var ds = from td in db.TieuDes
                      join disk in db.Disk_Games on td.MaTieuDe.Trim() equals disk.MaTieuDe.Trim()
                      join ctdh in db.ChiTietDonHangs on disk.MaDia.Trim() equals ctdh.MaDia.Trim()
                      where ctdh.MaDonHang.Trim() == madh
-                     select new eTieuDeGameDVD
+                     select new eATieuDeGameDVD
                      {
                          MaDia = disk.MaDia,
                          TrangThai = disk.TrangThai,
@@ -36,7 +36,7 @@ namespace Data
                          LoaiDia = td.LoaiDia,
                          Deleted = td.Deleted
                      };
-            foreach(eTieuDeGameDVD item in ds)
+            foreach(eATieuDeGameDVD item in ds)
             {
                 ls.Add(item);
             }    

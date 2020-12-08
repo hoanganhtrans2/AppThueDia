@@ -47,6 +47,24 @@ namespace Data
             }
             return ls;
         }
+        public bool capNhatThongTinChoThue(string loaiDia, float giaThue, int soNgayThue)
+        {
+            TieuDe khachHang = new TieuDe();
+            db.TieuDes.Where(td => td.LoaiDia == loaiDia).ToList()
+                .ForEach(x => { x.GiaThue = giaThue;  x.SoNgayDuocThue = soNgayThue; }) ;           
+            try
+            {
+                db.SubmitChanges();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Lỗi không xoa được " + e.Message);
+            }
+            return true;
+        }
+
+
+
         public bool deleteTieuDe(string id)
         {
             TieuDe khachHang = new TieuDe();

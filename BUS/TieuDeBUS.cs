@@ -33,5 +33,10 @@ namespace BUS
             return deDAL.getTieuDeTheoLoai(loai);
         }
 
+        public bool capNhatThongTinChoThue(string loaiDia, float giaThue, int soNgayThue)
+        {
+            return deDAL.capNhatThongTinChoThue(loaiDia, giaThue, soNgayThue);
+        }
+
     }
 }

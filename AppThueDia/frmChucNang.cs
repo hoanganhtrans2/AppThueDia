@@ -125,5 +125,12 @@ namespace AppThueDia
             f.Dock = DockStyle.Fill;
             f.Show();
         }
+
+        private void thietDacGiaThue_Click(object sender, EventArgs e)
+        {
+            frmCapNhatThongTinThue f = new frmCapNhatThongTinThue();
+            f.ShowDialog();
+            this.Hide();
+        }
     }
 }

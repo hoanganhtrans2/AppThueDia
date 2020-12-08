@@ -18,12 +18,13 @@ namespace AppThueDia
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new frmChucNang());
-            Application.Run(new frmTieuDe());
+            Application.Run(new frmChucNang());
+            //Application.Run(new frmTieuDe());
             //Application.Run(new frmDia());
             //Application.Run(new frmHuyKhoanPhiTre());
             //Application.Run(new frmBaoCaoTieuDe());
             //Application.Run(new frmBaoCaoKhachHang());
+            //Application.Run(new frmCapNhatThongTinThue());
         }
     }
 }

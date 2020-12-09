@@ -19,9 +19,9 @@ namespace BUS
         {
             return dalDisk.kiemTraMaDia(maDia);
         }
-        public bool datOnholdChoDia(string madia)
+        public bool datTrangThaiChoDia(string madia, int trangthai)
         {
-            return dalDisk.datOnholdChoDia(madia);
+            return dalDisk.datTrangThaiChoDia(madia, trangthai);
         }
     }
 }

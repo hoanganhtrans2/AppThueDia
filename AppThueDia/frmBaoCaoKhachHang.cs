@@ -67,7 +67,7 @@ namespace AppThueDia
             DataGridViewAutoSizeColumnsMode.AllCells;
             dgvQuaHan.Columns["MaDonHang"].Visible = false; 
             dgvQuaHan.Columns["DisplayThanhToanPhiNo"].Visible = false;
-            dgvQuaHan.Columns["MaDia"].Visible = false;
+            //dgvQuaHan.Columns["MaDia"].Visible = false;
             dgvQuaHan.Columns["MaTieuDe"].Visible = false;
             dgvQuaHan.Columns["ThanhToanPhiNo"].Visible = false;
             dgvQuaHan.Columns["MaKhachHang"].Visible = false;
@@ -130,7 +130,7 @@ namespace AppThueDia
             dgvThongTinTreHan.AutoSizeColumnsMode =
             DataGridViewAutoSizeColumnsMode.AllCells;
             dgvThongTinTreHan.Columns["MaDonHang"].Visible = false;
-            dgvThongTinTreHan.Columns["MaDia"].Visible = false;
+            //dgvThongTinTreHan.Columns["MaDia"].Visible = false;
             dgvThongTinTreHan.Columns["MaTieuDe"].Visible = false;
            // dgvThongTinTreHan.Columns["ThanhToanPhiNo"].Visible = false;
             dgvThongTinTreHan.Columns["MaKhachHang"].Visible = false;

@@ -108,5 +108,15 @@ namespace AppThueDia
             }
                
         }
+
+        private void btnThemKH_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

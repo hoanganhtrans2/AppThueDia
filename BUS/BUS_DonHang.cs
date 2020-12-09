@@ -11,13 +11,10 @@ namespace BUS
     public class BUS_DonHang
     {
         DAL_DonHang dalDonHang = new DAL_DonHang();
-        public bool taoDonHang(string maKH)
+        public string taoDonHang(string maKH)
         {
             return dalDonHang.taoDonHang(maKH);
         }
-        public string getMaDonHangTheoMaDia(string madia)
-        {
-            return dalDonHang.getMaDonHangTheoMaDia(madia);
-        }
+
     }
 }

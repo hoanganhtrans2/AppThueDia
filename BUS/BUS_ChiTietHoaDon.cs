@@ -11,9 +11,9 @@ namespace BUS
     public class BUS_ChiTietHoaDon
     {
         DAL_ChiTietDonHang dalchitiet = new DAL_ChiTietDonHang();
-        public bool taoChiTietDonHang(DTO_ChiTietDonHang chitiet)
+        public bool taoChiTietDonHang(string madonhang, string madia, string loai)
         {
-            return dalchitiet.taoChiTietDonHang(chitiet);
+            return dalchitiet.taoChiTietDonHang(madonhang, madia, loai);
         }
         public List<DTO_ChiTietDonHang> getDanhSachChiTietDH(string makh)
         {

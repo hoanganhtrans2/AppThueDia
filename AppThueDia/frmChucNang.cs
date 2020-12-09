@@ -50,7 +50,7 @@ namespace AppThueDia
 
         private void menuTieuDe_Click(object sender, EventArgs e)
         {
-            if (frmDangNhap.idDN != 0)
+            if (frmDangNhap.idDN != "")
             {
                 pnMain.Controls.Clear();
                 frmTieuDe f = new frmTieuDe();
@@ -59,8 +59,19 @@ namespace AppThueDia
                 f.Dock = DockStyle.Fill;
                 f.Show();
             }
-            else MessageBox.Show("Cần đăng nhập để thực hiện chức năng này!");
+            else
+            {
+                DialogResult dlr = MessageBox.Show("Chức năng cần đăng nhập. Đăng nhập?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlr == DialogResult.Yes)
+                {
+                    frmDangNhap f = new frmDangNhap();
+                    f.ShowDialog();
+                    this.Hide();
+                }
+            }
             
+            
+
         }
 
         private void menuDangNhap_Click(object sender, EventArgs e)
@@ -88,49 +99,131 @@ namespace AppThueDia
 
         private void menuQLDia_Click(object sender, EventArgs e)
         {
-            pnMain.Controls.Clear();
-            frmDia f = new frmDia();
-            f.TopLevel = false;
-            pnMain.Controls.Add(f);
-            f.Dock = DockStyle.Fill;
-            f.Show();
+            if (frmDangNhap.idDN != "")
+            {
+                pnMain.Controls.Clear();
+                            frmDia f = new frmDia();
+                            f.TopLevel = false;
+                            pnMain.Controls.Add(f);
+                            f.Dock = DockStyle.Fill;
+                            f.Show();
+            }
+            else
+            {
+                DialogResult dlr = MessageBox.Show("Chức năng cần đăng nhập. Đăng nhập?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlr == DialogResult.Yes)
+                {
+                    frmDangNhap f = new frmDangNhap();
+                    f.ShowDialog();
+                    this.Hide();
+                }
+            }
+
         }
 
         private void huyPhiTraTre_Click(object sender, EventArgs e)
         {
+            if (frmDangNhap.idDN != "")
+            {
             pnMain.Controls.Clear();
-            frmHuyKhoanPhiTre f = new frmHuyKhoanPhiTre();
-            f.TopLevel = false;
-            pnMain.Controls.Add(f);
-            f.Dock = DockStyle.Fill;
-            f.Show();
+                        frmHuyKhoanPhiTre f = new frmHuyKhoanPhiTre();
+                        f.TopLevel = false;
+                        pnMain.Controls.Add(f);
+                        f.Dock = DockStyle.Fill;
+                        f.Show();
+            }
+            else
+            {
+                DialogResult dlr = MessageBox.Show("Chức năng cần đăng nhập. Đăng nhập?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlr == DialogResult.Yes)
+                {
+                    frmDangNhap f = new frmDangNhap();
+                    f.ShowDialog();
+                    this.Hide();
+                }
+            }
+
         }
 
         private void baoCaoTieuDe_Click(object sender, EventArgs e)
         {
-            pnMain.Controls.Clear();
-            frmBaoCaoTieuDe f = new frmBaoCaoTieuDe();
-            f.TopLevel = false;
-            pnMain.Controls.Add(f);
-            f.Dock = DockStyle.Fill;
-            f.Show();
+            if (frmDangNhap.idDN != "")
+            {
+                pnMain.Controls.Clear();
+                            frmBaoCaoTieuDe f = new frmBaoCaoTieuDe();
+                            f.TopLevel = false;
+                            pnMain.Controls.Add(f);
+                            f.Dock = DockStyle.Fill;
+                            f.Show();
+            }
+            else
+            {
+                DialogResult dlr = MessageBox.Show("Chức năng cần đăng nhập. Đăng nhập?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlr == DialogResult.Yes)
+                {
+                    frmDangNhap f = new frmDangNhap();
+                    f.ShowDialog();
+                    this.Hide();
+                }
+            }
+
         }
 
         private void baoCaoKhachHang_Click(object sender, EventArgs e)
         {
+            if (frmDangNhap.idDN != "")
+            {
             pnMain.Controls.Clear();
-            frmBaoCaoKhachHang f = new frmBaoCaoKhachHang();
-            f.TopLevel = false;
-            pnMain.Controls.Add(f);
-            f.Dock = DockStyle.Fill;
-            f.Show();
+                        frmBaoCaoKhachHang f = new frmBaoCaoKhachHang();
+                        f.TopLevel = false;
+                        pnMain.Controls.Add(f);
+                        f.Dock = DockStyle.Fill;
+                        f.Show();
+            }
+            else
+            {
+                DialogResult dlr = MessageBox.Show("Chức năng cần đăng nhập. Đăng nhập?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlr == DialogResult.Yes)
+                {
+                    frmDangNhap f = new frmDangNhap();
+                    f.ShowDialog();
+                    this.Hide();
+                }
+            }
+
         }
 
         private void thietDacGiaThue_Click(object sender, EventArgs e)
         {
-            frmCapNhatThongTinThue f = new frmCapNhatThongTinThue();
+            if (frmDangNhap.idDN != "")
+            {
+                frmCapNhatThongTinThue f = new frmCapNhatThongTinThue();
             f.ShowDialog();
-           
+            }
+            else             
+            {
+                DialogResult dlr = MessageBox.Show("Chức năng cần đăng nhập. Đăng nhập?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlr == DialogResult.Yes)
+                {
+                    frmDangNhap f = new frmDangNhap();
+                    f.ShowDialog();
+                    this.Hide();
+                }
+            }
+
+
+        }
+
+        private void menuDangXuat_Click(object sender, EventArgs e)
+        {
+            frmDangNhap.idDN = "";
+            MessageBox.Show("Đăng xuất thành công.");
+            pnMain.Controls.Clear();
+            frmThueDia f = new frmThueDia();
+            f.TopLevel = false;
+            pnMain.Controls.Add(f);
+            f.Dock = DockStyle.Fill;
+            f.Show();
         }
     }
 }

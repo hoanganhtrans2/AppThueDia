@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using BUS;
 using Entity;
+using System.Globalization;
 
 namespace AppThueDia
 {
@@ -18,6 +19,7 @@ namespace AppThueDia
         BUS_KhachHang buskh = new BUS_KhachHang();
         BUS_ChiTietHoaDon buschitiet = new BUS_ChiTietHoaDon();
         public static double tongPhiTraTre;
+        BindingSource bd;
         public frmPhiTraTre()
         {
             InitializeComponent();
@@ -26,37 +28,41 @@ namespace AppThueDia
         private void frmPhiTraTre_Load(object sender, EventArgs e)
         {
             grbPhiTraTre.Text = "Thông tin phí trả trễ của khách hàng: " + buskh.getNameKhachHang(frmThueDia.maKH);
-            ListViewItem item = new ListViewItem();
-            lvPhiTraTre.View = View.Details;
-            item.Text = "abc";
-            item.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = "abc" });
-            item.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = "abc" });
-            item.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = "abc" });
-            item.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = "abc" });
-            lvPhiTraTre.Items.Add(item);
-            //List<DTO_ChiTietDonHang> lct = buschitiet.getDanhSachChiTietDH(frmThueDia.maKH);
-            //foreach (DTO_ChiTietDonHang ct in lct)
-            //{
-            //    item.Text = ct.MaDonHang;
-            //    item.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = ct.MaDia });
-            //    item.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = ct.HanTraDia.ToString() });
-            //    item.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = ct.NgayTraDia.ToString() });
-            //    item.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = ct.PhiTraTre.ToString() });
-            //    lvPhiTraTre.Items.Add(item);
-            //}
+            bd = new BindingSource();
+
+            List<DTO_ChiTietDonHang> lct = buschitiet.getDanhSachChiTietDH(frmThueDia.maKH);
+            bd.DataSource = lct;
+            lvPhiTraTre.DataSource = lct;
+
         }
 
         private void btnXong_Click(object sender, EventArgs e)
         {
             tongPhiTraTre = 0;
-            foreach (ListViewItem item in lvPhiTraTre.Items)
-            {
-                if (item.Selected == true)
-                    tongPhiTraTre += buschitiet.getPhiThue(item.Text, item.SubItems[1].Text);
-            }
 
             this.Hide();
 
+        }
+        public List<DTO_ChiTietDonHang> temp = new List<DTO_ChiTietDonHang>();
+        private void lvPhiTraTre_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void lvPhiTraTre_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            DTO_ChiTietDonHang ct = new DTO_ChiTietDonHang();
+            ct = (DTO_ChiTietDonHang)bd.Current;
+            DTO_ChiTietDonHang test = ct;
+            if (temp.Count > 0 && ct.Check == true)
+            {
+                ct.Check = false;
+                temp.Remove(ct);
+
+            }
+
+            ct.Check = true;
+            temp.Add(ct);
         }
     }
 }

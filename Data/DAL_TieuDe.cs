@@ -23,5 +23,11 @@ namespace Data
             return tieude;
 
         }
+        //lay gia thue
+        public double getGiaThue(string matieude)
+        {
+            TieuDe td = db.TieuDes.Where(x => x.MaTieuDe == matieude).FirstOrDefault();
+            return td.GiaThue;
+        }
     }
 }

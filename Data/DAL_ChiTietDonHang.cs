@@ -14,7 +14,11 @@ namespace Data
         public bool capNhatTraDia(string madia, DateTime ngaytra)
         {
             ChiTietDonHang ct = db.ChiTietDonHangs.Where(x => x.MaDia == madia).FirstOrDefault();
-            ct.NgayTraDia = ngaytra;
+            ct.NgayTraDia = (DateTime)ngaytra;
+            if (DateTime.Compare((DateTime)ct.NgayTraDia, (DateTime)ct.HanTraDia) > 0)
+            {
+                ct.PhiTraTre = 15000;
+            }
             try
             {
                 db.SubmitChanges();
@@ -26,17 +30,21 @@ namespace Data
             return true;
         }
         //
-        public bool taoChiTietDonHang(DTO_ChiTietDonHang chitiet)
+        public bool taoChiTietDonHang(string madonhang, string madia, string loai)
         {
             ChiTietDonHang ctdh = new ChiTietDonHang();
-            ctdh.MaDonHang = chitiet.MaDonHang;
-            ctdh.MaDia = chitiet.MaDia;
-            ctdh.HanTraDia = chitiet.HanTraDia;
-            ctdh.NgayTraDia = chitiet.NgayTraDia;
-            ctdh.PhiTraTre = chitiet.PhiTraTre;
-            ctdh.ThanhToanPhiNo = chitiet.ThanhToanPhiNo;
-            ctdh.PhiThue = chitiet.PhiThue;
-
+            ctdh.MaDonHang = madonhang;
+            ctdh.MaDia = madia;
+            if (loai == "movie")
+            {
+                ctdh.HanTraDia = DateTime.Now.AddDays(15);
+                ctdh.PhiThue = 30000;
+            }
+            else
+            {
+                ctdh.HanTraDia = DateTime.Now.AddDays(30);
+                ctdh.PhiThue = 50000;
+            }
             db.ChiTietDonHangs.InsertOnSubmit(ctdh);
             try
             {
@@ -58,8 +66,15 @@ namespace Data
                           select ct;
             foreach (var item in chitiet)
             {
-                DTO_ChiTietDonHang cttam = new DTO_ChiTietDonHang(item.MaDonHang, item.MaDia
-                    ,(float)item.PhiThue, (DateTime)item.NgayTraDia,(float)item.PhiTraTre, (bool)item.ThanhToanPhiNo, (DateTime)item.HanTraDia);
+                
+                DTO_ChiTietDonHang cttam = new DTO_ChiTietDonHang();
+               cttam.MaDonHang= item.MaDonHang; 
+                cttam.MaDia= item.MaDia;
+                cttam.PhiThue = (float)item.PhiThue;
+                cttam.NgayTraDia = item.NgayTraDia;
+                cttam.PhiTraTre =(float) item.PhiTraTre;
+                cttam.ThanhToanPhiNo = item.ThanhToanPhiNo;
+                cttam.HanTraDia = item.HanTraDia;
                 lChiTiet.Add(cttam);
             }
             return lChiTiet;

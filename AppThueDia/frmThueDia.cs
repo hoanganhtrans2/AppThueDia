@@ -35,8 +35,7 @@ namespace AppThueDia
                 if (busKH.kiemTraKhachHang(txtMaKhachHang.Text) == 0)
                     MessageBox.Show("Khách hàng đã bị xóa.");
                 else if (busKH.kiemTraKhachHang(txtMaKhachHang.Text) == 1)
-                {
-                    MessageBox.Show("Mã khách hàng hợp lệ.");
+                {                  
                     txtMaDia.Enabled = true;
                     maKH = txtMaKhachHang.Text;
                     frmPhiTraTre ftt = new frmPhiTraTre();
@@ -63,6 +62,7 @@ namespace AppThueDia
                     //MD000001
                     txtMaDia.Clear();
                     btnThue.Enabled = true;
+                    loadThanhTien();
                 }
                 else
                 {
@@ -70,21 +70,13 @@ namespace AppThueDia
                     txtMaDia.Clear();
                 }
 
-                }
             }
+        }
 
         private void frmThueDia_Load(object sender, EventArgs e)
         {
             lvDiaThue.View = View.Details;
             lvDiaThue.MultiSelect = false;
-            //ListViewItem item = new ListViewItem();
-            //item.Text = "MD000001";
-            //item.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = "Rom" });
-            //lvDiaThue.Items.Add(item);
-            //ListViewItem item2 = new ListViewItem();
-            //item2.Text = "MD000002";
-            //item2.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = "Tiec trang mau" });
-            //lvDiaThue.Items.Add(item2);
             index = 0;
         }
 
@@ -129,17 +121,37 @@ namespace AppThueDia
 
         private void btnThue_Click(object sender, EventArgs e)
         {
-            string maDonHang = "";
-            DTO_ChiTietDonHang chitiet;
-            busDonHang.taoDonHang(maKH);
+            DialogResult dlr = MessageBox.Show("Thuê đĩa?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlr == DialogResult.Yes)
+            {
+                string maDonHang = busDonHang.taoDonHang(maKH);
+                //MessageBox.Show(maDonHang);
+                foreach (ListViewItem item in lvDiaThue.Items)
+                {
+                    busChiTiet.taoChiTietDonHang(maDonHang, item.Text, txtLoaiDia.Text);
+                    busDisk.datTrangThaiChoDia(item.Text, 3);
+                }
+                MessageBox.Show("Thuê thành công, tổng tiền đơn hàng: " + txtTongThanhTien.Text);
+                btnThue.Enabled = false;
+                lvDiaThue.Clear();
+            }
+            else btnXoaItem.Enabled = false;
+
+        }
+        //load tong thanh tien
+        private void loadThanhTien()
+        {
+            double tt = 0;
             foreach (ListViewItem item in lvDiaThue.Items)
             {
-                maDonHang = busDonHang.getMaDonHangTheoMaDia(item.Text);
-                DTO_TieuDe td = busTieuDe.getTieuDeTheoMa(busDisk.getMaTieuDeTheoDia(item.Text));
-                chitiet = new DTO_ChiTietDonHang(maDonHang, item.Text, 1, td.GiaThue, new DateTime(), new float(), new bool(), DateTime.Now.AddDays(td.SoNgayDuocThue));
-                busChiTiet.taoChiTietDonHang(chitiet);
+                tt += busTieuDe.getGiaThue(busDisk.getMaTieuDeTheoDia(item.Text));
             }
-            MessageBox.Show("Thuê thành công");
+            txtTongThanhTien.Text = tt.ToString() + " vnd";
+        }
+
+        private void txtMaKhachHang_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

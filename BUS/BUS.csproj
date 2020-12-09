@@ -44,9 +44,11 @@
   <ItemGroup>
     <Compile Include="BaoCaoTieuDeBUS.cs" />
     <Compile Include="BUS_ChiTietHoaDon.cs" />
+    <Compile Include="BUS_DatTruoc.cs" />
     <Compile Include="BUS_Disk.cs" />
     <Compile Include="BUS_DonHang.cs" />
     <Compile Include="BUS_KhachHang.cs" />
+    <Compile Include="BUS_TaiKhoan.cs" />
     <Compile Include="BUS_TieuDe.cs" />
     <Compile Include="ChiTietDonHangBUS.cs" />
     <Compile Include="DiskGameBUS.cs" />

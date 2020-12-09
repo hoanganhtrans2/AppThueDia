@@ -40,11 +40,11 @@
             this.báoCáoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.baoCaoTieuDe = new System.Windows.Forms.ToolStripMenuItem();
             this.baoCaoKhachHang = new System.Windows.Forms.ToolStripMenuItem();
+            this.thietDacGiaThue = new System.Windows.Forms.ToolStripMenuItem();
             this.ngườiDùngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuDangNhap = new System.Windows.Forms.ToolStripMenuItem();
-            this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuDangXuat = new System.Windows.Forms.ToolStripMenuItem();
             this.pnMain = new System.Windows.Forms.Panel();
-            this.thietDacGiaThue = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -148,11 +148,18 @@
             this.baoCaoKhachHang.Text = "Báo cáo khách hàng";
             this.baoCaoKhachHang.Click += new System.EventHandler(this.baoCaoKhachHang_Click);
             // 
+            // thietDacGiaThue
+            // 
+            this.thietDacGiaThue.Name = "thietDacGiaThue";
+            this.thietDacGiaThue.Size = new System.Drawing.Size(180, 22);
+            this.thietDacGiaThue.Text = "Thiết đặc giá thuê";
+            this.thietDacGiaThue.Click += new System.EventHandler(this.thietDacGiaThue_Click);
+            // 
             // ngườiDùngToolStripMenuItem
             // 
             this.ngườiDùngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuDangNhap,
-            this.đăngXuấtToolStripMenuItem});
+            this.menuDangXuat});
             this.ngườiDùngToolStripMenuItem.Name = "ngườiDùngToolStripMenuItem";
             this.ngườiDùngToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
             this.ngườiDùngToolStripMenuItem.Text = "Người dùng";
@@ -160,15 +167,17 @@
             // menuDangNhap
             // 
             this.menuDangNhap.Name = "menuDangNhap";
-            this.menuDangNhap.Size = new System.Drawing.Size(132, 22);
+            this.menuDangNhap.Size = new System.Drawing.Size(180, 22);
             this.menuDangNhap.Text = "Đăng nhập";
             this.menuDangNhap.Click += new System.EventHandler(this.menuDangNhap_Click);
             // 
-            // đăngXuấtToolStripMenuItem
+            // menuDangXuat
             // 
-            this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
+            this.menuDangXuat.Name = "menuDangXuat";
+            this.menuDangXuat.ShowShortcutKeys = false;
+            this.menuDangXuat.Size = new System.Drawing.Size(180, 22);
+            this.menuDangXuat.Text = "Đăng xuất";
+            this.menuDangXuat.Click += new System.EventHandler(this.menuDangXuat_Click);
             // 
             // pnMain
             // 
@@ -178,13 +187,6 @@
             this.pnMain.Name = "pnMain";
             this.pnMain.Size = new System.Drawing.Size(1275, 689);
             this.pnMain.TabIndex = 1;
-            // 
-            // thietDacGiaThue
-            // 
-            this.thietDacGiaThue.Name = "thietDacGiaThue";
-            this.thietDacGiaThue.Size = new System.Drawing.Size(180, 22);
-            this.thietDacGiaThue.Text = "Thiết đặc giá thuê";
-            this.thietDacGiaThue.Click += new System.EventHandler(this.thietDacGiaThue_Click);
             // 
             // frmChucNang
             // 
@@ -217,7 +219,7 @@
         private System.Windows.Forms.Panel pnMain;
         private System.Windows.Forms.ToolStripMenuItem ngườiDùngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuDangNhap;
-        private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuDangXuat;
         private System.Windows.Forms.ToolStripMenuItem menuTraDia;
         private System.Windows.Forms.ToolStripMenuItem menuQLDia;
         private System.Windows.Forms.ToolStripMenuItem menuDatTieuDe;

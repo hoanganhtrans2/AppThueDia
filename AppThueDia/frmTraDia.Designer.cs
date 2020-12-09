@@ -32,9 +32,9 @@
             this.txtMaDia = new System.Windows.Forms.TextBox();
             this.btnTraDia = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.dtNgayTra = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,7 +43,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(149, 91);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 27);
+            this.label1.Size = new System.Drawing.Size(55, 19);
             this.label1.TabIndex = 1;
             this.label1.Text = "Mã đĩa:";
             // 
@@ -51,7 +51,7 @@
             // 
             this.txtMaDia.Location = new System.Drawing.Point(244, 88);
             this.txtMaDia.Name = "txtMaDia";
-            this.txtMaDia.Size = new System.Drawing.Size(326, 35);
+            this.txtMaDia.Size = new System.Drawing.Size(326, 26);
             this.txtMaDia.TabIndex = 2;
             // 
             // btnTraDia
@@ -62,6 +62,7 @@
             this.btnTraDia.TabIndex = 3;
             this.btnTraDia.Text = "Trả đĩa";
             this.btnTraDia.UseVisualStyleBackColor = true;
+            this.btnTraDia.Click += new System.EventHandler(this.btnTraDia_Click);
             // 
             // groupBox1
             // 
@@ -78,6 +79,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin đĩa trả";
             // 
+            // dtNgayTra
+            // 
+            this.dtNgayTra.Location = new System.Drawing.Point(244, 152);
+            this.dtNgayTra.Name = "dtNgayTra";
+            this.dtNgayTra.Size = new System.Drawing.Size(289, 26);
+            this.dtNgayTra.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(133, 160);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 19);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Ngày trả:";
+            // 
             // label6
             // 
             this.label6.BackColor = System.Drawing.Color.DarkSlateGray;
@@ -91,25 +108,9 @@
             this.label6.Text = "TRẢ ĐĨA";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(133, 160);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 27);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Ngày trả:";
-            // 
-            // dtNgayTra
-            // 
-            this.dtNgayTra.Location = new System.Drawing.Point(244, 152);
-            this.dtNgayTra.Name = "dtNgayTra";
-            this.dtNgayTra.Size = new System.Drawing.Size(289, 35);
-            this.dtNgayTra.TabIndex = 4;
-            // 
             // frmTraDia
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 27F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(773, 366);
             this.Controls.Add(this.label6);

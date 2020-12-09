@@ -9,39 +9,39 @@ using System.Data.SqlTypes;
 
 namespace Data
 {
-    
+
     public class DAL_DonHang
     {
         dbQuanLyDiaDataContext db = new dbQuanLyDiaDataContext();
         //tao don hang khi thue dia
-
-        
-        public bool taoDonHang(string maKH)
+        public string taoDonHang(string maKH)
         {
-            DonHang dhang = new DonHang();
-            dhang.MaKhachHang = maKH;
-           
-            dhang.NgayThue = DateTime.Now;
-           
+            DonHang dh = new DonHang();
+            dh.MaKhachHang = maKH;
+            dh.NgayThue = DateTime.Now;
+            db.DonHangs.InsertOnSubmit(dh);
+            //db.SubmitChanges();
             try
             {
-                db.DonHangs.InsertOnSubmit(dhang);
                 db.SubmitChanges();
             }
             catch (Exception e)
             {
                 throw new Exception("Lỗi không thêm được " + e.Message);
             }
-            return true;
-        }
-        //
-        public string getMaDonHangTheoMaDia(string madia)
-        {
-            var ldh = from dh in db.DonHangs
-                         join ct in db.ChiTietDonHangs on dh.MaDonHang equals ct.MaDonHang
-                         where ct.MaDia == madia
-                         select ct.MaDonHang;
-            return ldh.ToString();      
+            var c = from d in db.DonHangs select d.MaDonHang;
+            int i = 0;
+            foreach (var item in c)
+            {
+                i++;
+            }
+            if (i < 10)
+                return "HD00000" + i.ToString();
+            else if (i >= 10 && i < 100)
+                return "HD0000" + i.ToString();
+            else if (i >= 100)
+                return "HD000" + i.ToString();
+            return "";
         }
     }
 }

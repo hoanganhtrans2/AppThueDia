@@ -65,7 +65,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(126, 122);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 27);
+            this.label1.Size = new System.Drawing.Size(55, 19);
             this.label1.TabIndex = 1;
             this.label1.Text = "Mã đĩa:";
             // 
@@ -74,7 +74,7 @@
             this.txtMaDia.Enabled = false;
             this.txtMaDia.Location = new System.Drawing.Point(217, 119);
             this.txtMaDia.Name = "txtMaDia";
-            this.txtMaDia.Size = new System.Drawing.Size(276, 35);
+            this.txtMaDia.Size = new System.Drawing.Size(276, 26);
             this.txtMaDia.TabIndex = 2;
             this.txtMaDia.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMaDia_KeyDown);
             // 
@@ -106,8 +106,9 @@
             // 
             this.txtMaKhachHang.Location = new System.Drawing.Point(217, 57);
             this.txtMaKhachHang.Name = "txtMaKhachHang";
-            this.txtMaKhachHang.Size = new System.Drawing.Size(276, 35);
+            this.txtMaKhachHang.Size = new System.Drawing.Size(276, 26);
             this.txtMaKhachHang.TabIndex = 2;
+            this.txtMaKhachHang.TextChanged += new System.EventHandler(this.txtMaKhachHang_TextChanged);
             this.txtMaKhachHang.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMaKhachHang_KeyDown);
             // 
             // label7
@@ -115,7 +116,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(57, 57);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(154, 27);
+            this.label7.Size = new System.Drawing.Size(98, 19);
             this.label7.TabIndex = 1;
             this.label7.Text = "Mã khác hàng:";
             // 
@@ -141,7 +142,7 @@
             this.txtLoaiDia.Enabled = false;
             this.txtLoaiDia.Location = new System.Drawing.Point(245, 131);
             this.txtLoaiDia.Name = "txtLoaiDia";
-            this.txtLoaiDia.Size = new System.Drawing.Size(276, 35);
+            this.txtLoaiDia.Size = new System.Drawing.Size(276, 26);
             this.txtLoaiDia.TabIndex = 2;
             // 
             // txtSoNgay
@@ -149,7 +150,7 @@
             this.txtSoNgay.Enabled = false;
             this.txtSoNgay.Location = new System.Drawing.Point(245, 172);
             this.txtSoNgay.Name = "txtSoNgay";
-            this.txtSoNgay.Size = new System.Drawing.Size(276, 35);
+            this.txtSoNgay.Size = new System.Drawing.Size(276, 26);
             this.txtSoNgay.TabIndex = 2;
             // 
             // txtGiaThue
@@ -157,7 +158,7 @@
             this.txtGiaThue.Enabled = false;
             this.txtGiaThue.Location = new System.Drawing.Point(245, 90);
             this.txtGiaThue.Name = "txtGiaThue";
-            this.txtGiaThue.Size = new System.Drawing.Size(276, 35);
+            this.txtGiaThue.Size = new System.Drawing.Size(276, 26);
             this.txtGiaThue.TabIndex = 2;
             // 
             // txtTieuDe
@@ -166,7 +167,7 @@
             this.txtTieuDe.ForeColor = System.Drawing.Color.Black;
             this.txtTieuDe.Location = new System.Drawing.Point(245, 49);
             this.txtTieuDe.Name = "txtTieuDe";
-            this.txtTieuDe.Size = new System.Drawing.Size(276, 35);
+            this.txtTieuDe.Size = new System.Drawing.Size(276, 26);
             this.txtTieuDe.TabIndex = 2;
             // 
             // label4
@@ -174,7 +175,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(114, 177);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 27);
+            this.label4.Size = new System.Drawing.Size(79, 19);
             this.label4.TabIndex = 1;
             this.label4.Text = "Hạn trả đĩa:";
             // 
@@ -183,7 +184,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(139, 93);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 27);
+            this.label3.Size = new System.Drawing.Size(62, 19);
             this.label3.TabIndex = 1;
             this.label3.Text = "Giá thuê:";
             // 
@@ -192,7 +193,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(142, 136);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(97, 27);
+            this.label5.Size = new System.Drawing.Size(61, 19);
             this.label5.TabIndex = 1;
             this.label5.Text = "Loại đĩa:";
             // 
@@ -201,7 +202,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(150, 52);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 27);
+            this.label2.Size = new System.Drawing.Size(56, 19);
             this.label2.TabIndex = 1;
             this.label2.Text = "Tiêu đề:";
             // 
@@ -235,7 +236,8 @@
             this.lvDiaThue.Dock = System.Windows.Forms.DockStyle.Top;
             this.lvDiaThue.FullRowSelect = true;
             this.lvDiaThue.GridLines = true;
-            this.lvDiaThue.Location = new System.Drawing.Point(3, 31);
+            this.lvDiaThue.HideSelection = false;
+            this.lvDiaThue.Location = new System.Drawing.Point(3, 22);
             this.lvDiaThue.Name = "lvDiaThue";
             this.lvDiaThue.Size = new System.Drawing.Size(575, 246);
             this.lvDiaThue.TabIndex = 0;
@@ -285,7 +287,7 @@
             this.txtTongThanhTien.Enabled = false;
             this.txtTongThanhTien.Location = new System.Drawing.Point(203, 188);
             this.txtTongThanhTien.Name = "txtTongThanhTien";
-            this.txtTongThanhTien.Size = new System.Drawing.Size(280, 35);
+            this.txtTongThanhTien.Size = new System.Drawing.Size(280, 26);
             this.txtTongThanhTien.TabIndex = 1;
             // 
             // txtPhiTraTre
@@ -293,7 +295,7 @@
             this.txtPhiTraTre.Enabled = false;
             this.txtPhiTraTre.Location = new System.Drawing.Point(203, 110);
             this.txtPhiTraTre.Name = "txtPhiTraTre";
-            this.txtPhiTraTre.Size = new System.Drawing.Size(280, 35);
+            this.txtPhiTraTre.Size = new System.Drawing.Size(280, 26);
             this.txtPhiTraTre.TabIndex = 1;
             // 
             // label9
@@ -301,7 +303,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(28, 196);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(169, 27);
+            this.label9.Size = new System.Drawing.Size(104, 19);
             this.label9.TabIndex = 0;
             this.label9.Text = "Tổng thành tiền:";
             // 
@@ -310,13 +312,13 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(83, 113);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(114, 27);
+            this.label8.Size = new System.Drawing.Size(71, 19);
             this.label8.TabIndex = 0;
             this.label8.Text = "Phí trả trễ:";
             // 
             // frmThueDia
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 27F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1277, 680);
             this.Controls.Add(this.groupBox4);

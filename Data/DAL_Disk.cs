@@ -33,10 +33,14 @@ namespace Data
         }
         //check if exist
         //dat trang thai onhold cho dia
-        public bool datOnholdChoDia(string madia)
+        public bool datTrangThaiChoDia(string madia, int trangthai)
         {
             Disk_Game d = db.Disk_Games.Where(x => x.MaDia == madia).FirstOrDefault();
-            d.TrangThai = "on hold";
+            if (trangthai == 1)
+                d.TrangThai = "onhold";
+            else if (trangthai == 2)
+                d.TrangThai = "onshelf";
+            else d.TrangThai = "rented";
             try
             {
                 db.SubmitChanges();

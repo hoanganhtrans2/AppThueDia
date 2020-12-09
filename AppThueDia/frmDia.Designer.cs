@@ -89,6 +89,7 @@
             this.btnThemKH.TabIndex = 3;
             this.btnThemKH.Text = "Thêm";
             this.btnThemKH.UseVisualStyleBackColor = true;
+            this.btnThemKH.Click += new System.EventHandler(this.btnThemKH_Click);
             // 
             // groupBox1
             // 
@@ -239,6 +240,7 @@
             this.btnXoa.TabIndex = 3;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // groupBox3
             // 

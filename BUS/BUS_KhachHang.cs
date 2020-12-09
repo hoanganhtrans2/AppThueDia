@@ -13,7 +13,7 @@ namespace BUS
         DAL_KhachHang dalKhachHang = new DAL_KhachHang();
         public BUS_KhachHang()
         {
-            
+
         }
         public int kiemTraKhachHang(string maKH)
         {

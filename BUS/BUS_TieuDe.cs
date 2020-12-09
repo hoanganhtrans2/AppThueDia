@@ -15,5 +15,9 @@ namespace BUS
         {
             return dalTieuDe.getTieuDeTheoMa(maTieuDe);
         }
+        public double getGiaThue(string matieude)
+        {
+            return dalTieuDe.getGiaThue(matieude);
+        }
     }
 }
